@@ -367,7 +367,7 @@ function setCurrentLand(land) {
 }
 
 function renderViews() {
-  const viewIcon = {next: "flag", nearby: "map", must: "star", booking: "ticket", height: "height", later: "clock", done: "check"};
+  const viewIcon = {overview: "calendar", next: "flag", nearby: "map", must: "star", booking: "ticket", height: "height", later: "clock", done: "check"};
   document.querySelectorAll(".view").forEach(btn => {
     const label = btn.dataset.label || btn.textContent.trim();
     btn.dataset.label = label;
@@ -596,6 +596,19 @@ function render() {
   const app = document.getElementById("app");
   const next = nextBestItem();
 
+  if (currentView === "overview") {
+    app.innerHTML = renderOverview();
+    if (pendingFlashKey) {
+      const el = app.querySelector(`[data-key="${pendingFlashKey.replace(/"/g, '\\"')}"]`);
+      if (el) {
+        el.classList.add("flash");
+        setTimeout(() => el.classList.remove("flash"), 700);
+      }
+      pendingFlashKey = "";
+    }
+    return;
+  }
+
   if (currentView !== "next") {
     const items = viewItems();
     app.innerHTML = renderStats() + renderNextUp(next) + section(viewTitle(), viewSubtitle(), items, false, viewAvoidItems());
@@ -629,6 +642,7 @@ function render() {
 }
 
 function viewTitle() {
+  if (currentView === "overview") return "Day Agenda";
   if (currentView === "nearby") return `Nearby in ${currentLand}`;
   if (currentView === "must") return "Must Do";
   if (currentView === "booking") return "Bookings";
@@ -639,6 +653,7 @@ function viewTitle() {
 }
 
 function viewSubtitle() {
+  if (currentView === "overview") return "Ultra minimal park-by-park agenda";
   if (currentView === "nearby") return "Only active items in your current land";
   if (currentView === "must") return "Highest-priority active items";
   if (currentView === "booking") return "Anything requiring booking or special attention";
@@ -657,7 +672,7 @@ function renderCard(item, compact = false) {
   else if (isMust(item)) classes.push("must");
 
   return `
-    <article class="${classes.join(" ")}" data-key="${k}">
+    <article class="${classes.join(" ")}" data-key="${key(item)}">
       <div class="card-main">
         <div class="card-text">
           <h3 class="name">${item.name}</h3>
@@ -668,6 +683,42 @@ function renderCard(item, compact = false) {
       ${renderActions(item, compact)}
       ${renderDetails(item)}
     </article>
+  `;
+}
+
+function renderOverview() {
+  const agenda = parksForDay().map(park => {
+    const parkAll = dayItems().filter(item => item.park === park);
+    const active = parkAll.filter(item => !isDone(item) && !isSkipNow(item));
+    const next = rankedItems(active)[0] || null;
+    const must = active.filter(isMust).length;
+    const bookings = active.filter(item => item.booking).length;
+    const heights = active.filter(item => hasHeightInfo(item)).length;
+    const isActivePark = park === currentPark;
+
+    return `
+      <article class="overview-row${isActivePark ? " active" : ""}" data-key="${park}">
+        <div class="overview-row-head">
+          <div>
+            <h3>${park}</h3>
+            <p>${active.length} active stop${active.length === 1 ? "" : "s"}</p>
+          </div>
+          <span class="overview-count">${must} must / ${bookings} bk / ${heights} ht</span>
+        </div>
+        <p class="overview-next">${next ? next.name : "No active stops"}</p>
+      </article>
+    `;
+  }).join("");
+
+  return `
+    <section class="overview-shell">
+      <div class="overview-head">
+        <p class="eyebrow">${icon("calendar")}<span>Overview</span></p>
+        <h2>Day ${currentDay}</h2>
+        <p>Minimal agenda by park. No extra noise.</p>
+      </div>
+      <div class="overview-list">${agenda || `<div class="overview-empty">No stops for this day.</div>`}</div>
+    </section>
   `;
 }
 

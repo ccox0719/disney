@@ -1663,6 +1663,122 @@ h1,
   padding-top:14px;
 }
 
+.overview-shell {
+  background:var(--glass-strong);
+  border:1px solid var(--glass-border);
+  border-radius:22px;
+  box-shadow:var(--glass-shadow);
+  backdrop-filter:blur(22px) saturate(1.18);
+  -webkit-backdrop-filter:blur(22px) saturate(1.18);
+  padding:16px;
+  margin-bottom:14px;
+}
+
+.overview-head {
+  padding-bottom:10px;
+  border-bottom:1px solid var(--glass-border);
+}
+
+.overview-head h2 {
+  margin:4px 0 3px;
+  font-size:1.08rem;
+  line-height:1.15;
+  letter-spacing:-.02em;
+}
+
+.overview-head p {
+  margin:0;
+  color:#475569;
+  font-size:.8rem;
+  line-height:1.35;
+}
+
+.overview-list {
+  display:grid;
+  gap:6px;
+  margin-top:10px;
+}
+
+.overview-row {
+  padding:10px 0;
+  border-top:1px solid rgba(148,163,184,.18);
+}
+
+.overview-row:first-child {
+  border-top:0;
+  padding-top:0;
+}
+
+.overview-row.active {
+  margin:0 -6px;
+  padding:12px 6px;
+  border-radius:16px;
+  background:rgba(37,99,235,.06);
+}
+
+.overview-row-head {
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.overview-row-head h3 {
+  margin:0;
+  font-size:.96rem;
+  line-height:1.22;
+  font-weight:800;
+  letter-spacing:-.01em;
+}
+
+.overview-row-head p {
+  margin:3px 0 0;
+  color:#64748b;
+  font-size:.72rem;
+  font-weight:600;
+}
+
+.overview-count {
+  flex-shrink:0;
+  color:#64748b;
+  font-size:.66rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  text-align:right;
+}
+
+.overview-next {
+  margin:6px 0 0;
+  color:#0f172a;
+  font-size:.9rem;
+  font-weight:700;
+  line-height:1.25;
+}
+
+.overview-empty {
+  padding:18px 0 6px;
+  color:#64748b;
+  font-size:.85rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .overview-head p,
+  .overview-row-head p,
+  .overview-count,
+  .overview-empty {
+    color:#94a3b8;
+  }
+
+  .overview-next {
+    color:#f8fafc;
+  }
+
+  .overview-row.active {
+    background:rgba(59,130,246,.16);
+  }
+}
+
 .stat,
 .mission-card,
 .card,
