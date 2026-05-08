@@ -3,6 +3,7 @@ let importedAttractions = JSON.parse(localStorage.getItem("disneyImportedAttract
 let blankDays = JSON.parse(localStorage.getItem("disneyBlankDays") || "[]");
 let currentDay = Number(localStorage.getItem("disneyCurrentDay") || "1");
 let currentView = localStorage.getItem("disneyCurrentView") || "next";
+let currentPark = localStorage.getItem("disneyCurrentPark") || "";
 let currentLand = localStorage.getItem("disneyCurrentLand") || "";
 let forcedNextKey = localStorage.getItem("disneyForcedNextKey") || "";
 const state = JSON.parse(localStorage.getItem("disneyParkListState") || "{}");
@@ -14,6 +15,7 @@ if (browserSave) {
   if (localStorage.getItem("disneyBlankDays") === null) blankDays = browserSave.blankDays || [];
   if (localStorage.getItem("disneyCurrentDay") === null) currentDay = Number(browserSave.currentDay || 1);
   if (localStorage.getItem("disneyCurrentView") === null) currentView = browserSave.currentView || "next";
+  if (localStorage.getItem("disneyCurrentPark") === null) currentPark = browserSave.currentPark || "";
   if (localStorage.getItem("disneyCurrentLand") === null) currentLand = browserSave.currentLand || "";
   if (localStorage.getItem("disneyForcedNextKey") === null) forcedNextKey = browserSave.forcedNextKey || "";
   if (localStorage.getItem("disneyParkListState") === null && browserSave.state) Object.assign(state, browserSave.state);
@@ -37,6 +39,14 @@ function isMust(item) {
 }
 function activeItems() {
   return dayItems().filter(item => !isDone(item) && !isSkipNow(item));
+}
+
+function parksForDay() {
+  return [...new Set(dayItems().map(item => item.park))].filter(Boolean);
+}
+
+function parkItems() {
+  return dayItems().filter(item => item.park === currentPark);
 }
 
 function colorClass(color) {
@@ -154,6 +164,7 @@ function saveToBrowser(message = "Saved") {
     blankDays,
     currentDay,
     currentView,
+    currentPark,
     currentLand,
     forcedNextKey,
     state
@@ -165,6 +176,8 @@ function saveToBrowser(message = "Saved") {
     localStorage.setItem("disneyBlankDays", JSON.stringify(blankDays));
     localStorage.setItem("disneyCurrentDay", String(currentDay));
     localStorage.setItem("disneyCurrentView", currentView);
+    if (currentPark) localStorage.setItem("disneyCurrentPark", currentPark);
+    else localStorage.removeItem("disneyCurrentPark");
     if (currentLand) localStorage.setItem("disneyCurrentLand", currentLand);
     else localStorage.removeItem("disneyCurrentLand");
     if (forcedNextKey) localStorage.setItem("disneyForcedNextKey", forcedNextKey);
@@ -210,26 +223,42 @@ function clearForcedNext() {
 }
 
 function getCurrentPark() {
-  const items = dayItems();
-  const inLand = items.find(item => item.land === currentLand);
-  return inLand ? inLand.park : (items[0] && items[0].park) || "Trip";
+  return currentPark || parksForDay()[0] || "Trip";
 }
 
 function landsForDay() {
-  return [...new Set(dayItems().map(item => item.land))].filter(Boolean);
+  return [...new Set(parkItems().map(item => item.land))].filter(Boolean);
 }
 
-function ensureCurrentDayAndLand() {
+function ensureCurrentPark() {
+  const parks = parksForDay();
+  if (!parks.includes(currentPark)) {
+    const landMatch = dayItems().find(item => item.land === currentLand && item.park);
+    currentPark = parks.includes(landMatch && landMatch.park) ? landMatch.park : (parks[0] || "");
+  }
+}
+
+function ensureCurrentDayParkAndLand() {
   const ds = days();
   if (!ds.includes(currentDay)) currentDay = ds[0] || 1;
+  ensureCurrentPark();
   const lands = landsForDay();
   if (!lands.includes(currentLand)) currentLand = lands[0] || "";
+}
+
+function setCurrentPark(park) {
+  currentPark = park;
+  currentLand = "";
+  clearForcedNext();
+  saveToBrowser("Park saved");
+  render();
 }
 
 function scoreItem(item) {
   let score = 0;
   const s = itemState(item);
   if (key(item) === forcedNextKey) score += 1000;
+  if (item.park === currentPark) score += 100;
   if (item.land === currentLand) score += 140;
   if (item.booking) score += 90;
   if (isMust(item)) score += 80;
@@ -260,13 +289,26 @@ function renderTabs() {
     btn.innerHTML = `${icon("calendar")}<span>Day ${day}</span>`;
     btn.onclick = () => {
       currentDay = day;
-      currentLand = "";
       clearForcedNext();
-      ensureCurrentDayAndLand();
+      ensureCurrentDayParkAndLand();
       saveToBrowser("Day saved");
       render();
     };
     tabs.appendChild(btn);
+  });
+}
+
+function renderParkSelector() {
+  const container = document.getElementById("currentPark");
+  if (!container) return;
+  container.innerHTML = "";
+  parksForDay().forEach(park => {
+    const btn = document.createElement("button");
+    btn.className = "park-chip" + (park === currentPark ? " active" : "");
+    btn.type = "button";
+    btn.innerHTML = `${icon("map")}<span>${park}</span>`;
+    btn.onclick = () => setCurrentPark(park);
+    container.appendChild(btn);
   });
 }
 
@@ -504,11 +546,12 @@ function renderAvoidList(items) {
 }
 
 function render() {
-  ensureCurrentDayAndLand();
+  ensureCurrentDayParkAndLand();
   renderTabs();
+  renderParkSelector();
   renderLandSelector();
   renderViews();
-  document.getElementById("currentParkTitle").textContent = getCurrentPark();
+  document.getElementById("currentParkTitle").textContent = `Day ${currentDay} · ${getCurrentPark()}`;
   updateSaveStatus();
 
   const app = document.getElementById("app");
@@ -596,6 +639,7 @@ function renderNextUp(item) {
           <p class="eyebrow">${icon(key(item) === forcedNextKey ? "pin" : "flag")}<span>${key(item) === forcedNextKey ? "Pinned Next" : "Next Up"}</span></p>
           <h2 class="mission-name">${item.name}</h2>
           <div class="mission-meta">
+            <span>${icon("map")}<span>${item.park}</span></span>
             <span>${icon("pin")}<span>${item.land}</span></span>
             ${item.booking ? `<span>${icon("ticket")}<span>Booking needed</span></span>` : ""}
           </div>
@@ -785,8 +829,9 @@ function importCsv(event) {
       customAttractions = [];
       blankDays = [];
       currentDay = days()[0] || 1;
+      currentPark = "";
       currentLand = "";
-      ensureCurrentDayAndLand();
+      ensureCurrentDayParkAndLand();
       saveToBrowser("CSV saved");
       setImportStatus(`Imported ${imported.length} CSV item(s).`);
       render();

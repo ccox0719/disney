@@ -249,6 +249,10 @@ h1 {
   line-height: 1.18;
 }
 
+#currentParkTitle {
+  font-size: 1rem;
+}
+
 .save-status {
   margin: 2px 0 0;
   color: var(--quiet);
@@ -322,6 +326,36 @@ h3 { margin: 0; font-size: .98rem; font-weight: 700; }
    LAND CHIPS
 ══════════════════════════════════════════════════════ */
 .location-row { padding: 3px 0 1px; }
+
+.park-chips-row {
+  display: flex;
+  gap: 5px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 2px;
+}
+.park-chips-row::-webkit-scrollbar { display: none; }
+
+.park-chip {
+  flex-shrink: 0;
+  min-height: 32px;
+  height: 32px;
+  padding: 0 13px;
+  border-radius: 999px;
+  border-color: var(--line-strong);
+  background: rgba(255,255,255,.72);
+  color: var(--ink-2);
+  font-size: .74rem;
+  font-weight: 700;
+  touch-action: manipulation;
+}
+
+.park-chip.active {
+  background: linear-gradient(180deg, #0f172a, #1e293b);
+  color: #fff;
+  border-color: rgba(15,23,42,.92);
+  box-shadow: 0 6px 16px rgba(15,23,42,.16);
+}
 
 .land-chips-row {
   display: flex;
@@ -1986,5 +2020,33 @@ summary {
 
   .section-head {
     border-left-color: rgba(255,255,255,.15);
+  }
+}
+
+/* ══════════════════════════════════════════════════════
+   BADGE TEXT + BUTTON COLOR FIXES
+══════════════════════════════════════════════════════ */
+
+/* Orange/yellow badges: dark text — white on amber has poor contrast */
+.badge.orange,
+.badge.yellow {
+  color: #431407;
+}
+
+/* Dark mode: restore green Done button — white primary-action was too stark */
+@media (prefers-color-scheme: dark) {
+  .primary-action {
+    background: linear-gradient(180deg, #22c55e, #16a34a);
+    color: #052e16;
+    border-color: rgba(34,197,94,.85);
+    box-shadow: 0 6px 18px rgba(34,197,94,.2);
+  }
+
+  /* Icon-button (Edit) and floating-edit: keep dark, not white */
+  .icon-button,
+  .floating-edit {
+    background: linear-gradient(180deg, #1e293b, #0f172a);
+    color: #f8fafc;
+    border-color: rgba(255,255,255,.16);
   }
 }
