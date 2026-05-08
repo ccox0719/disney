@@ -673,15 +673,17 @@ function renderCard(item, compact = false) {
 
   return `
     <article class="${classes.join(" ")}" data-key="${key(item)}">
-      <div class="card-main">
-        <div class="card-text">
-          <h3 class="name">${item.name}</h3>
-          <p class="land-line">${icon("pin")}<span>${item.land}</span><span>${item.park}</span></p>
-        </div>
-        <div class="badges">${itemBadges(item, compact)}</div>
-      </div>
-      ${renderActions(item, compact)}
-      ${renderDetails(item)}
+      <details class="card-expand">
+        <summary class="card-main">
+          <div class="card-text">
+            <h3 class="name">${item.name}</h3>
+            <p class="land-line">${icon("pin")}<span>${item.land}</span><span>${item.park}</span></p>
+          </div>
+          <div class="badges">${itemBadges(item, compact)}</div>
+        </summary>
+        ${renderActions(item, compact)}
+        ${renderDetails(item)}
+      </details>
     </article>
   `;
 }
@@ -770,17 +772,15 @@ function section(title, subtitle, items, compact = false, avoid = []) {
   if (!items.length && !avoid.length) return "";
   return `
     <section class="section">
-      <details class="section-toggle">
-        <summary class="section-head">
-          <div>
-            <h2>${sectionIcon(title)}<span>${title}</span></h2>
-            ${subtitle ? `<p>${subtitle}</p>` : ""}
-          </div>
-          <p>${items.length}<span class="section-chevron">›</span></p>
-        </summary>
-        ${items.length ? `<div class="cards">${items.map(item => renderCard(item, compact)).join("")}</div>` : ""}
-        ${renderAvoidList(avoid)}
-      </details>
+      <div class="section-head">
+        <div>
+          <h2>${sectionIcon(title)}<span>${title}</span></h2>
+          ${subtitle ? `<p>${subtitle}</p>` : ""}
+        </div>
+        <p>${items.length}</p>
+      </div>
+      ${items.length ? `<div class="cards">${items.map(item => renderCard(item, compact)).join("")}</div>` : ""}
+      ${renderAvoidList(avoid)}
     </section>
   `;
 }

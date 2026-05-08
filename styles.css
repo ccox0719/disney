@@ -640,38 +640,6 @@ h3 { margin: 0; font-size: .98rem; font-weight: 700; }
 
 .cards { display: grid; gap: 6px; }
 
-.section-toggle {
-  margin-top: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  padding: 0;
-}
-
-.section-toggle > summary {
-  min-height: unset;
-  cursor: pointer;
-}
-
-.section-toggle > summary::-webkit-details-marker { display: none; }
-
-.section-toggle > summary .section-chevron {
-  display: inline-block;
-  font-size: .7rem;
-  color: var(--muted);
-  transition: transform .2s;
-  margin-left: 4px;
-}
-
-.section-toggle[open] > summary .section-chevron {
-  transform: rotate(90deg);
-}
-
-.section-toggle > .cards,
-.section-toggle > .avoid-list {
-  margin-top: 4px;
-}
-
 /* ══════════════════════════════════════════════════════
    ATTRACTION CARDS
 ══════════════════════════════════════════════════════ */
@@ -729,6 +697,22 @@ h3 { margin: 0; font-size: .98rem; font-weight: 700; }
 
 .card-text { flex: 1; min-width: 0; }
 .card-main .badges { flex-shrink: 0; margin-top: 0; }
+
+.card-expand {
+  margin-top: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.card-expand > summary {
+  min-height: unset;
+  cursor: pointer;
+  list-style: none;
+}
+
+.card-expand > summary::-webkit-details-marker { display: none; }
 
 .name {
   margin: 0;
