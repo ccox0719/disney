@@ -704,7 +704,7 @@ function renderOverview() {
           <div class="overview-index">${String(index + 1).padStart(2, "0")}</div>
           <div class="overview-item-copy">
             <h3>${item.name}</h3>
-            <p>${item.park} · ${item.land}</p>
+            <p>${item.park} / ${item.land}</p>
           </div>
         </div>
         ${tags.length ? `<p class="overview-tags">${tags.map(tag => `<span>${tag}</span>`).join("")}</p>` : ""}
@@ -717,7 +717,7 @@ function renderOverview() {
       <div class="overview-head">
         <p class="eyebrow">${icon("calendar")}<span>Overview</span></p>
         <h2>Day ${currentDay}</h2>
-        <p>Ordered by what to hit next.</p>
+        <p>${items.length} stops in order.</p>
       </div>
       <div class="overview-list">${agenda || `<div class="overview-empty">No stops for this day.</div>`}</div>
     </section>
