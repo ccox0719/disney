@@ -880,6 +880,268 @@ h3 { margin: 0; font-size: .98rem; font-weight: 700; }
   }
 }
 
+/* -----------------------------------------------------------------
+   VISUAL POLISH OVERRIDES
+   Refines button styling and softens the palette for the final UI.
+------------------------------------------------------------------ */
+:root {
+  --bg: #eef2f7;
+  --surface: rgba(255,255,255,.82);
+  --surface-tinted: rgba(244,247,252,.9);
+  --surface-strong: rgba(255,255,255,.95);
+  --ink: #0f172a;
+  --ink-2: #334155;
+  --muted: #64748b;
+  --quiet: #94a3b8;
+  --line: rgba(15,23,42,.08);
+  --line-strong: rgba(15,23,42,.14);
+  --green: #15935b;
+  --red: #c53b3b;
+  --purple: #6d4aff;
+  --amber: #b87412;
+  --blue: #2563eb;
+  --pink: #b94672;
+  --green-bg: #effaf4;
+  --purple-bg: #f5f2ff;
+  --amber-bg: #fff8ea;
+  --red-bg: #fef3f3;
+  --bar-bg: rgba(239, 242, 247, .92);
+  --shadow-sm: 0 1px 2px rgba(15,23,42,.05), 0 1px 1px rgba(15,23,42,.03);
+  --shadow-md: 0 8px 22px rgba(15,23,42,.09), 0 2px 6px rgba(15,23,42,.05);
+  --shadow-lg: 0 16px 38px rgba(15,23,42,.12), 0 4px 12px rgba(15,23,42,.06);
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(37,99,235,.10), transparent 32%),
+    radial-gradient(circle at top right, rgba(109,74,255,.08), transparent 28%),
+    linear-gradient(180deg, rgba(238,242,247,.72), rgba(238,242,247,.86)),
+    var(--bg);
+}
+
+button,
+.icon-button,
+.tab,
+.land-chip,
+.view,
+.floating-edit,
+.menu-button,
+.primary-action,
+.quiet-action {
+  transition:
+    transform .18s var(--ease-out),
+    box-shadow .18s var(--ease-out),
+    background-color .18s var(--ease-out),
+    border-color .18s var(--ease-out),
+    color .18s var(--ease-out),
+    opacity .18s var(--ease-out);
+}
+
+button {
+  box-shadow: var(--shadow-sm);
+  background: rgba(255,255,255,.78);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+button:hover,
+button:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+button:focus-visible {
+  outline: 2px solid rgba(37,99,235,.42);
+  outline-offset: 2px;
+}
+
+.menu-button {
+  background: linear-gradient(180deg, rgba(15,23,42,.96), rgba(30,41,59,.94));
+  border-color: rgba(15,23,42,.88);
+  box-shadow: 0 8px 20px rgba(15,23,42,.18);
+}
+
+.menu-button:hover,
+.menu-button:focus-visible {
+  box-shadow: 0 10px 22px rgba(15,23,42,.22);
+}
+
+.icon-button {
+  background: linear-gradient(180deg, rgba(15,23,42,.95), rgba(30,41,59,.90));
+  color: #fff;
+  border: 1px solid rgba(15,23,42,.75);
+}
+
+.tab,
+.land-chip,
+.view {
+  border: 1px solid rgba(15,23,42,.10);
+  background: rgba(255,255,255,.72);
+  color: var(--ink-2);
+  box-shadow: none;
+}
+
+.tab.active,
+.view.active {
+  background: linear-gradient(180deg, #0f172a, #1e293b);
+  color: #fff;
+  border-color: rgba(15,23,42,.92);
+  box-shadow: 0 6px 16px rgba(15,23,42,.16);
+}
+
+.land-chip.active {
+  background: linear-gradient(180deg, #2455a8, #1e3f74);
+  color: #fff;
+  border-color: rgba(30,63,116,.96);
+  box-shadow: 0 6px 16px rgba(30,63,116,.18);
+}
+
+.primary-action {
+  background: linear-gradient(180deg, #0f172a, #1e293b);
+  color: #fff;
+  border-color: rgba(15,23,42,.95);
+}
+
+.primary-action:hover,
+.primary-action:focus-visible,
+.tab.active:hover,
+.view.active:hover,
+.land-chip.active:hover {
+  transform: translateY(-1px);
+}
+
+.quiet-action {
+  background: rgba(255,255,255,.76);
+  color: var(--ink-2);
+  border-color: rgba(15,23,42,.10);
+}
+
+.quick-actions button {
+  border-radius: 14px;
+}
+
+.badge {
+  box-shadow: 0 1px 1px rgba(15,23,42,.08);
+}
+
+.card,
+.mission-card,
+.stat,
+.avoid-list,
+.avoid-card,
+.edit-sheet,
+.tool-grid button,
+select,
+input[type="text"],
+input[type="number"],
+textarea,
+.tag-editor select {
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.card {
+  background: rgba(255,255,255,.78);
+}
+
+.mission-card {
+  background: rgba(255,255,255,.8);
+}
+
+.stat {
+  background: rgba(255,255,255,.78);
+}
+
+.avoid-list {
+  background: rgba(255,247,247,.88);
+}
+
+.avoid-card {
+  background: rgba(255,255,255,.76);
+}
+
+.floating-edit {
+  background: linear-gradient(180deg, #0f172a, #1e293b);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1020;
+    --surface: rgba(15,23,42,.78);
+    --surface-tinted: rgba(15,23,42,.88);
+    --surface-strong: rgba(15,23,42,.95);
+    --ink: #f8fafc;
+    --ink-2: #dbe4f0;
+    --muted: #a3b0c4;
+    --quiet: #748197;
+    --line: rgba(255,255,255,.09);
+    --line-strong: rgba(255,255,255,.15);
+    --bar-bg: rgba(8,12,22,.92);
+    --green: #4ade80;
+    --red: #fb7185;
+    --purple: #a78bfa;
+    --amber: #fbbf24;
+    --blue: #60a5fa;
+    --pink: #f472b6;
+    --green-bg: rgba(20,83,45,.25);
+    --purple-bg: rgba(76,29,149,.22);
+    --amber-bg: rgba(120,53,15,.20);
+    --red-bg: rgba(127,29,29,.22);
+  }
+
+  body {
+    background:
+      radial-gradient(circle at top left, rgba(37,99,235,.16), transparent 30%),
+      radial-gradient(circle at top right, rgba(168,139,250,.12), transparent 26%),
+      linear-gradient(180deg, rgba(11,16,32,.74), rgba(11,16,32,.9)),
+      var(--bg);
+  }
+
+  button,
+  .tab,
+  .land-chip,
+  .view,
+  .card,
+  .mission-card,
+  .stat,
+  .avoid-list,
+  .avoid-card,
+  select,
+  input[type="text"],
+  input[type="number"],
+  textarea,
+  .tag-editor select {
+    background: rgba(15,23,42,.76);
+    color: var(--ink);
+    border-color: rgba(255,255,255,.10);
+  }
+
+  .tab.active,
+  .view.active,
+  .land-chip.active,
+  .primary-action,
+  .icon-button,
+  .menu-button,
+  .floating-edit {
+    background: linear-gradient(180deg, #e2e8f0, #cbd5e1);
+    color: #0f172a;
+    border-color: rgba(226,232,240,.9);
+  }
+}
+
+@media (hover: none) {
+  button:hover,
+  .tab:hover,
+  .view:hover,
+  .land-chip:hover,
+  .icon-button:hover,
+  .menu-button:hover,
+  .floating-edit:hover {
+    transform: none;
+    box-shadow: inherit;
+  }
+}
+
 /* ══════════════════════════════════════════════════════
    EDIT PANEL (bottom sheet)
 ══════════════════════════════════════════════════════ */
