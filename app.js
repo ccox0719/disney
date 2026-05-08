@@ -770,15 +770,17 @@ function section(title, subtitle, items, compact = false, avoid = []) {
   if (!items.length && !avoid.length) return "";
   return `
     <section class="section">
-      <div class="section-head">
-        <div>
-          <h2>${sectionIcon(title)}<span>${title}</span></h2>
-          ${subtitle ? `<p>${subtitle}</p>` : ""}
-        </div>
-        <p>${items.length}</p>
-      </div>
-      ${items.length ? `<div class="cards">${items.map(item => renderCard(item, compact)).join("")}</div>` : ""}
-      ${renderAvoidList(avoid)}
+      <details class="section-toggle">
+        <summary class="section-head">
+          <div>
+            <h2>${sectionIcon(title)}<span>${title}</span></h2>
+            ${subtitle ? `<p>${subtitle}</p>` : ""}
+          </div>
+          <p>${items.length}<span class="section-chevron">›</span></p>
+        </summary>
+        ${items.length ? `<div class="cards">${items.map(item => renderCard(item, compact)).join("")}</div>` : ""}
+        ${renderAvoidList(avoid)}
+      </details>
     </section>
   `;
 }
