@@ -1,0 +1,6 @@
+npm run build
+netlify deploy --prod
+
+
+Next run this in phases: 
+

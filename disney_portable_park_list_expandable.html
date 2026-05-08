@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Disney Portable Park List</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="command-bar">
+  <div class="top-line">
+    <div>
+      <p class="eyebrow">Park Command</p>
+      <h1 id="currentParkTitle">Disney Portable Park List</h1>
+      <p class="save-status" id="saveStatus">Saved locally</p>
+    </div>
+    <div class="top-actions">
+      <button class="menu-button" id="menuButton" type="button" onclick="toggleTopMenu()" aria-expanded="false" aria-controls="topMenu" aria-label="Open navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+      <button class="icon-button" type="button" onclick="toggleEditPanel()" aria-label="Edit trip">Edit</button>
+    </div>
+  </div>
+  <div class="top-menu" id="topMenu">
+    <div class="tabs" id="tabs" aria-label="Day navigation"></div>
+    <div class="location-row">
+      <div id="currentLand" class="land-chips-row" role="group" aria-label="Current park area"></div>
+    </div>
+    <div class="views" id="views" aria-label="Mission views">
+      <button class="view active" data-view="next">Next</button>
+      <button class="view" data-view="nearby">Nearby</button>
+      <button class="view" data-view="must">Must</button>
+      <button class="view" data-view="booking">Bookings</button>
+      <button class="view" data-view="later">Later</button>
+      <button class="view" data-view="done">Done</button>
+    </div>
+  </div>
+</header>
+
+<main id="app" class="app-shell"></main>
+
+<button class="floating-edit" type="button" onclick="toggleEditPanel()" aria-label="Open edit tools">+</button>
+
+<aside class="edit-panel" id="editPanel" aria-hidden="true">
+  <div class="edit-scrim" onclick="toggleEditPanel(false)"></div>
+  <section class="edit-sheet" aria-label="Trip editing tools">
+    <div class="sheet-header">
+      <div>
+        <p class="eyebrow">Planning Tools</p>
+        <h2>Edit Trip</h2>
+      </div>
+      <button class="icon-button" type="button" onclick="toggleEditPanel(false)" aria-label="Close edit tools">Close</button>
+    </div>
+
+    <details open>
+      <summary>Add attraction or stop</summary>
+      <div class="form-grid">
+        <label>Day Number<input id="newDay" type="number" min="1" value="4"></label>
+        <label>Park<input id="newPark" placeholder="Example: Magic Kingdom"></label>
+        <label>Land / Area<input id="newLand" placeholder="Example: Fantasyland"></label>
+        <label>Attraction / Stop<input id="newName" placeholder="Example: Peter Pan's Flight"></label>
+        <label>Priority Color
+          <select id="newColor">
+            <option>Green</option><option>Purple</option><option>Orange</option><option>Light Orange</option>
+            <option>Yellow</option><option>Pink</option><option>Red</option><option>Uncertain</option>
+          </select>
+        </label>
+        <label>Status
+          <select id="newStatus">
+            <option>Active</option><option>Skip</option><option>Uncertain</option>
+          </select>
+        </label>
+        <label>Booking Required
+          <select id="newBooking"><option value="false">No</option><option value="true">Yes</option></select>
+        </label>
+        <label>Display Order<input id="newOrder" type="number" min="1" value="1"></label>
+        <textarea id="newNotes" placeholder="Notes, reminders, food stop, height requirement, etc."></textarea>
+        <textarea id="newUncertainty" placeholder="Uncertainty flags, if any"></textarea>
+        <div class="form-actions">
+          <button type="button" onclick="addItem()">Add Item</button>
+          <button type="button" onclick="addBlankDay()">Add Blank Day</button>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>Import and export</summary>
+      <div class="tool-grid">
+        <button type="button" onclick="saveToBrowser('Saved to this browser')">Save to Browser</button>
+        <button type="button" onclick="exportData()">Export JSON</button>
+        <button type="button" onclick="exportCsv()">Export CSV</button>
+        <button type="button" onclick="document.getElementById('csvImport').click()">Import CSV</button>
+        <input id="csvImport" type="file" accept=".csv,text/csv" onchange="importCsv(event)" hidden>
+        <button type="button" onclick="resetCustom()" class="danger">Clear Added / Imported</button>
+      </div>
+      <p class="small" id="importStatus"></p>
+    </details>
+  </section>
+</aside>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

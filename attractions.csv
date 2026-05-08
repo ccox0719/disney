@@ -1,0 +1,71 @@
+day,park,land,name,color,meaning,booking,notes,status,order,uncertainty
+1,Magic Kingdom,Parkwide / Entertainment,Festival of Fantasy Parade,Yellow,If time / lower priority,false,,Active,1,Star/color visible; yellow not in user legend.
+1,Magic Kingdom,Parkwide / Entertainment,Disney Starlight Parade,Yellow,If time / lower priority,false,,Active,2,Star/color visible; yellow not in user legend.
+1,Magic Kingdom,"Main Street, U.S.A.",Ride the Train,Yellow,If time / lower priority,false,,Active,3,Yellow not in user legend.
+1,Magic Kingdom,"Main Street, U.S.A.",Shopping,Yellow,If time / lower priority,false,,Active,4,Not a ride; included because starred.
+1,Magic Kingdom,Fantasyland,Prince Charming Regal Carrousel,Yellow,If time / lower priority,false,,Active,5,Yellow not in user legend.
+1,Magic Kingdom,Fantasyland,Peter Pan's Flight,Green,Must do,false,,Active,6,
+1,Magic Kingdom,Fantasyland,It's a small world,Green,Must do,false,,Active,7,
+1,Magic Kingdom,Fantasyland,Mad Tea Party,Yellow,If time / lower priority,false,,Active,8,Yellow not in user legend.
+1,Magic Kingdom,Fantasyland,Dumbo the Flying Elephant,Yellow,If time / lower priority,false,,Active,9,Yellow not in user legend.
+1,Magic Kingdom,Fantasyland,Mickey's PhilharMagic,Yellow,If time / lower priority,false,,Active,10,Yellow not in user legend.
+1,Magic Kingdom,Fantasyland,The Many Adventures of Winnie the Pooh,Yellow,If time / lower priority,false,,Active,11,Yellow not in user legend.
+1,Magic Kingdom,Fantasyland,Barnstormer,Green,Must do,false,35 inch height note shown.,Active,12,
+1,Magic Kingdom,Fantasyland,Under the Sea: Journey of the Little Mermaid,Yellow,If time / lower priority,false,,Active,13,Yellow not in user legend; name read from sheet.
+1,Magic Kingdom,Fantasyland,Seven Dwarfs Mine Train,Purple/Blue,Booking or special attention,true,38 inch height note shown.,Active,14,Color appears purple/blue; booking interpretation likely.
+1,Magic Kingdom,Fantasyland,Cheshire Cafe,Green,Must do / food stop,false,,Active,15,Not a ride; included because starred.
+1,Magic Kingdom,Tomorrowland,Tomorrowland Speedway,Yellow,If time / lower priority,false,32 inch height note shown.,Active,16,Yellow not in user legend.
+1,Magic Kingdom,Tomorrowland,Space Mountain,Green,Must do,false,44 inch height note shown.,Active,17,
+1,Magic Kingdom,Tomorrowland,Buzz Lightyear's Space Ranger Spin,Green,Must do,false,,Active,18,
+1,Magic Kingdom,Tomorrowland,TRON Lightcycle / Run,Purple/Blue,Booking or special attention,true,48 inch height note shown.,Active,19,Purple/blue mark suggests booking; confirm.
+1,Magic Kingdom,Tomorrowland,Astro Orbiter,Yellow,If time / lower priority,false,,Active,20,Yellow not in user legend.
+1,Magic Kingdom,Tomorrowland,Laugh Floor,Yellow,If time / lower priority,false,,Active,21,Yellow not in user legend.
+1,Magic Kingdom,Tomorrowland,PeopleMover,Green,Must do,false,Handwritten note nearby: “Have an [unclear] is between booking...”,Active,22,Pink/purple note partially unreadable.
+1,Magic Kingdom,Liberty Square,Haunted Mansion,Green,Must do,false,,Active,23,
+1,Magic Kingdom,Liberty Square,Hall of Presidents,Red/Pink,Skip,false,Marked with skip-style note.,Skip,24,Starred but skipped; handwriting partially unclear.
+1,Magic Kingdom,Frontierland,Tiana's Bayou Adventure,Purple/Blue,Booking or special attention,true,40 inch height note shown.,Active,25,Color appears purple/blue; confirm booking status.
+1,Magic Kingdom,Frontierland,Big Thunder Mountain Railroad,Orange/Yellow,If time or special category,false,40 inch height note shown.,Active,26,Orange/yellow shade uncertain.
+1,Magic Kingdom,Frontierland,Country Bear Musical Jamboree,Red,Skip,false,,Skip,27,Appears red star/mark; verify.
+1,Magic Kingdom,Frontierland,Pecos Bill Tall Tale Inn,Green,Must do / food stop,false,,Active,28,Not a ride; included because starred.
+1,Magic Kingdom,Adventureland,Pirates of the Caribbean,Green,Must do,false,,Active,29,
+1,Magic Kingdom,Adventureland,Jungle Cruise,Green,Must do,false,,Active,30,
+1,Magic Kingdom,Adventureland,Enchanted Tiki Room,Red/Pink,Skip,false,,Skip,31,Appears marked skip.
+1,Magic Kingdom,Adventureland,Swiss Family Treehouse,Yellow,If time / lower priority,false,,Active,32,Yellow not in user legend.
+1,Magic Kingdom,Adventureland,The Magic Carpets of Aladdin,Red/Pink,Skip or low priority,false,,Skip,33,Looks red/pink; verify whether skip.
+2,Hollywood Studios,Parkwide / Entertainment,Fantasmic!,Orange/Yellow,If time or special category,false,,Active,1,Orange/yellow shade uncertain.
+2,Hollywood Studios,Hollywood Blvd.,Mickey & Minnie's Runaway Railway,Green,Must do,false,,Active,2,
+2,Hollywood Studios,Echo Lake,Star Tours,Green,Must do,false,,Active,3,
+2,Hollywood Studios,Echo Lake,For the First Time in Forever: Frozen Sing-Along,Green,Must do,false,,Active,4,
+2,Hollywood Studios,Echo Lake,Indiana Jones Epic Stunt Spectacular,Green,Must do,false,,Active,5,
+2,Hollywood Studios,Echo Lake,Meet Olaf,Green,Must do,false,,Active,6,
+2,Hollywood Studios,Sunset Blvd.,The Twilight Zone Tower of Terror,Purple/Blue,Booking or special attention,true,40 inch height note shown.,Active,7,Booking color appears purple/blue.
+2,Hollywood Studios,Sunset Blvd.,Beauty and the Beast Live on Stage,Green,Must do,false,,Active,8,
+2,Hollywood Studios,Animation Courtyard,The Little Mermaid Show,Green,Must do,false,,Active,9,
+2,Hollywood Studios,Toy Story Land,Toy Story Mania,Purple/Blue,Booking or special attention,true,,Active,10,Color appears purple/blue.
+2,Hollywood Studios,Toy Story Land,Alien Swirling Saucers,Purple/Blue,Booking or special attention,true,32 inch height note shown.,Active,11,Color appears purple/blue.
+2,Hollywood Studios,Toy Story Land,Slinky Dog Dash,Green,Must do,false,38 inch height note shown.,Active,12,
+2,Hollywood Studios,Toy Story Land,Woody's Lunch Box,Green,Must do / food stop,false,,Active,13,Not a ride; included because starred.
+2,Hollywood Studios,Star Wars: Galaxy's Edge,Millennium Falcon: Smugglers Run,Green,Must do,false,38 inch height note shown.,Active,14,
+2,Hollywood Studios,Star Wars: Galaxy's Edge,Star Wars: Rise of the Resistance,Green/Purple,"Must do, possible booking/special attention",true,40 inch height note shown. Pink handwritten note nearby partially unclear.,Active,15,Booking note/marking unclear; verify.
+2,EPCOT,World Celebration,Spaceship Earth,Purple/Blue,Booking or special attention,true,,Active,16,Color appears purple/blue.
+2,EPCOT,World Nature,The Seas with Nemo and Friends,Purple/Blue,Booking or special attention,true,,Active,17,Color appears purple/blue.
+2,EPCOT,World Nature,Living with the Land,Orange/Yellow,If time or special category,false,,Active,18,Orange/yellow shade uncertain.
+2,EPCOT,World Nature,Soarin',Green,Must do,false,40 inch height note shown.,Active,19,
+2,EPCOT,World Nature,Journey of Water,Yellow,If time / lower priority,false,Moana themed area.,Active,20,Yellow not in user legend.
+2,EPCOT,World Nature,Turtle Talk with Crush,Yellow/Orange,If time or special category,false,,Active,21,Name partially near bottom of land section; color unclear.
+2,EPCOT,World Discovery,Guardians of the Galaxy: Cosmic Rewind,Purple/Blue,Booking or special attention,true,42 inch height note shown.,Active,22,Booking likely.
+2,EPCOT,World Discovery,Mission: SPACE,Purple/Blue,Booking or special attention,true,40 inch height note shown; handwritten note mentions orange/strong intensity.,Active,23,Color and note partially unclear.
+2,EPCOT,World Showcase,Gran Fiesta Tour Starring The Three Caballeros,Yellow/Orange,If time or special category,false,Mexico.,Active,24,Color uncertain.
+2,EPCOT,World Showcase,Frozen Ever After,Green,Must do,false,Norway.,Active,25,
+2,EPCOT,World Showcase,Remy's Ratatouille Adventure,Green,Must do,false,France.,Active,26,
+3,Animal Kingdom,Discovery Island,Take a Photo with the Tree of Life,Green,Must do,false,,Active,1,
+3,Animal Kingdom,Discovery Island,It's Tough to be a Bug,Red/Pink,Skip,false,Marked with skip-style handwritten note.,Skip,2,Attraction may be replaced by Zootopia show depending timing; verify.
+3,Animal Kingdom,Discovery Island,Zootopia: Better Zoogether,Green,Must do,false,,Active,3,
+3,Animal Kingdom,Pandora - The World of Avatar,Na'vi River Journey,Green/Purple,"Must do, possible booking/special attention",true,,Active,4,Both green and purple/blue markings appear nearby.
+3,Animal Kingdom,Pandora - The World of Avatar,Avatar Flight of Passage,Purple/Blue + Green,Booking or special attention; must do,true,44 inch height note shown.,Active,5,Booking likely.
+3,Animal Kingdom,Africa,Kilimanjaro Safaris,Purple/Blue,Booking or special attention,true,,Active,6,Color appears purple/blue.
+3,Animal Kingdom,Africa,Festival of the Lion King,Orange/Yellow,If time or special category,false,,Active,7,Orange/yellow shade uncertain.
+3,Animal Kingdom,Africa,Wildlife Express Train,Orange/Yellow + Red,Uncertain / possible skip,false,,Uncertain,8,Contains yellow/orange star and red X-like mark; verify whether skip.
+3,Animal Kingdom,Africa,Meet Goofy,Red/Pink,Skip or note,false,Pink note says skip/unclear.,Skip,9,Handwritten mark unclear.
+3,Animal Kingdom,Asia,Expedition Everest,Purple/Blue,Booking or special attention,true,44 inch height note shown.,Active,10,Booking/special color appears purple/blue.
+3,Animal Kingdom,Asia,Feathered Friends in Flight,Red/Pink,Skip,false,,Skip,11,Appears red/pink star/mark; verify.
