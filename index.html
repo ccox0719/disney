@@ -107,6 +107,7 @@
         <button type="button" onclick="document.getElementById('csvImport').click()">Import CSV</button>
         <input id="csvImport" type="file" accept=".csv,text/csv" onchange="importCsv(event)" hidden>
         <button type="button" onclick="resetCustom()" class="danger">Clear Added / Imported</button>
+        <button type="button" onclick="resetToDefault()" class="danger">Reset to Default</button>
       </div>
       <p class="small" id="importStatus"></p>
     </details>

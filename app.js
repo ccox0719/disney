@@ -923,6 +923,38 @@ function resetCustom() {
   render();
 }
 
+function resetToDefault() {
+  if (!confirm("Reset this browser to the default trip state? This clears imported data, custom items, saved location, filters, and edits.")) return;
+  customAttractions = [];
+  importedAttractions = null;
+  blankDays = [];
+  currentDay = 1;
+  currentView = "next";
+  currentPark = "";
+  currentLand = "";
+  forcedNextKey = "";
+  pendingFlashKey = "";
+  Object.keys(state).forEach(key => delete state[key]);
+
+  const keys = [
+    "disneyImportedAttractions",
+    "disneyCustomAttractions",
+    "disneyBlankDays",
+    "disneyCurrentDay",
+    "disneyCurrentView",
+    "disneyCurrentPark",
+    "disneyCurrentLand",
+    "disneyForcedNextKey",
+    "disneyParkListState",
+    "disneyBrowserSave",
+    "disneyLastSavedAt"
+  ];
+  keys.forEach(key => localStorage.removeItem(key));
+  saveToBrowser("Reset to default");
+  setImportStatus("Restored default trip state.");
+  render();
+}
+
 function toggleEditPanel(force) {
   const panel = document.getElementById("editPanel");
   const open = typeof force === "boolean" ? force : !panel.classList.contains("open");
