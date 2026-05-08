@@ -193,6 +193,25 @@
   border-top:1px solid rgba(0,0,0,.06);
 }
 
+.nav-sheet .tabs {
+  flex-wrap:wrap;
+  overflow-x:visible;
+  padding-bottom:4px;
+}
+
+.nav-sheet .tab { flex-shrink:1; }
+
+.nav-sheet .park-chips-row,
+.nav-sheet .land-chips-row {
+  flex-wrap:wrap;
+  overflow-x:visible;
+}
+
+.nav-sheet .park-chip,
+.nav-sheet .land-chip {
+  flex-shrink:1;
+}
+
 .nav-sheet .views {
   display:grid;
   grid-template-columns:repeat(auto-fill, minmax(90px, 1fr));
