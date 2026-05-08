@@ -1911,3 +1911,80 @@ summary {
     color:#cbd5e1;
   }
 }
+
+/* ══════════════════════════════════════════════════════
+   VISUAL IMPROVEMENTS
+   1. Stat numbers — bigger + color-coded
+   2. Mission card — hero treatment with blue accent
+   3. Next button — outlined/distinct from Later
+   4. Section headers — more visual weight
+   5. Badges — sharper chip corners
+   6. Mission card spacing — tighten meta-to-badges gap
+══════════════════════════════════════════════════════ */
+
+/* 1. Larger, color-coded stat numbers */
+.stat strong {
+  font-size: 2.1rem;
+  letter-spacing: -.045em;
+}
+.status-grid .stat:nth-child(1) strong { color: var(--blue); }
+.status-grid .stat:nth-child(2) strong { color: var(--purple); }
+.status-grid .stat:nth-child(3) strong { color: var(--green); }
+
+/* 2. Default mission card gets a blue hero accent instead of gray */
+.mission-card:not(.mission-must):not(.mission-booking):not(.empty) {
+  border-top-color: var(--blue);
+  background: linear-gradient(155deg, rgba(37,99,235,.07) 0%, var(--glass-strong) 52%);
+}
+
+/* Tighten gap between location meta and badge row */
+.mission-meta {
+  margin-bottom: 5px;
+}
+
+/* 3. "Next" button in compact layout: outlined blue, visually distinct from "Later" */
+.quick-actions--compact button:last-child {
+  background: transparent;
+  border: 1.5px solid rgba(37,99,235,.38);
+  color: var(--blue);
+  box-shadow: none;
+}
+
+/* 4. Section headers: slightly larger label, stronger contrast */
+.section-head h2 {
+  font-size: .76rem;
+  color: #1e293b;
+  letter-spacing: .07em;
+}
+.section-head {
+  border-left: 2px solid var(--line-strong);
+  padding-left: 9px;
+}
+
+/* 5. Badges: sharper chip corners instead of fully rounded */
+.badge {
+  border-radius: 5px;
+  padding: 2px 6px;
+}
+
+/* Dark mode counterparts */
+@media (prefers-color-scheme: dark) {
+  .mission-card:not(.mission-must):not(.mission-booking):not(.empty) {
+    border-top-color: var(--blue);
+    background: linear-gradient(155deg, rgba(37,99,235,.22) 0%, rgba(15,23,42,.86) 55%);
+  }
+
+  .quick-actions--compact button:last-child {
+    background: rgba(37,99,235,.14);
+    border-color: rgba(96,165,250,.38);
+    color: var(--blue);
+  }
+
+  .section-head h2 {
+    color: #94a3b8;
+  }
+
+  .section-head {
+    border-left-color: rgba(255,255,255,.15);
+  }
+}
