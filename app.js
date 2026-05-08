@@ -699,7 +699,6 @@ function renderOverview() {
       item.booking ? "Booking" : "",
       height ? height : "",
       isMust(item) ? "Must" : "",
-      item.status === "Uncertain" || item.uncertainty ? "If Time" : ""
     ].filter(Boolean);
     const parkHeader = item.park !== lastPark ? `
       <div class="overview-park${item.park === currentPark ? " active" : ""}">
