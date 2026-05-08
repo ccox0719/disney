@@ -6,6 +6,7 @@ let currentView = localStorage.getItem("disneyCurrentView") || "next";
 let currentPark = localStorage.getItem("disneyCurrentPark") || "";
 let currentLand = localStorage.getItem("disneyCurrentLand") || "";
 let forcedNextKey = localStorage.getItem("disneyForcedNextKey") || "";
+let pendingFlashKey = "";
 const state = JSON.parse(localStorage.getItem("disneyParkListState") || "{}");
 const browserSave = JSON.parse(localStorage.getItem("disneyBrowserSave") || "null");
 
@@ -149,7 +150,8 @@ function setTagOverride(k, tag) {
     state[k].tag = tag;
   }
   if (tag === "Avoid") state[k].skipNow = true;
-  saveToBrowser("Tag saved");
+  pendingFlashKey = k;
+  saveToBrowser(`Tag: ${tag}`);
   render();
 }
 
@@ -162,6 +164,25 @@ function updateSaveStatus(message) {
   const status = document.getElementById("saveStatus");
   if (!status) return;
   status.textContent = message || savedAtText(localStorage.getItem("disneyLastSavedAt"));
+}
+
+function actionMessage(action, nextValue) {
+  if (action === "done") return nextValue ? "Marked done" : "Marked not done";
+  if (action === "later") return nextValue ? "Moved to later" : "Back to active";
+  if (action === "skipNow") return nextValue ? "Added to avoid" : "Removed from avoid";
+  if (action === "fav") return nextValue ? "Starred" : "Unstarred";
+  return "Saved";
+}
+
+let toastTimer = null;
+
+function showToast(message) {
+  const toast = document.getElementById("actionToast");
+  if (!toast) return;
+  toast.textContent = message;
+  toast.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove("show"), 1600);
 }
 
 function saveToBrowser(message = "Saved") {
@@ -196,6 +217,7 @@ function saveToBrowser(message = "Saved") {
     localStorage.setItem("disneyBrowserSave", JSON.stringify(snapshot));
     localStorage.setItem("disneyLastSavedAt", savedAt);
     updateSaveStatus(message);
+    showToast(message);
   } catch (error) {
     alert("This browser could not save the trip. Export CSV or JSON as a backup.");
   }
@@ -216,14 +238,16 @@ function setActionByKey(k, action) {
     if (state[k].tag === "Avoid") delete state[k].tag;
     if (forcedNextKey === k) clearForcedNext();
   }
-  saveState();
+  pendingFlashKey = k;
+  saveToBrowser(actionMessage(action, state[k][action]));
   render();
 }
 
 function makeNext(k) {
   forcedNextKey = k;
   currentView = "next";
-  saveToBrowser("Next saved");
+  pendingFlashKey = k;
+  saveToBrowser("Pinned as next");
   render();
 }
 
@@ -454,7 +478,7 @@ function renderCard(item, compact = false) {
   else if (isMust(item)) classes.push("must");
 
   return `
-    <article class="${classes.join(" ")}">
+    <article class="${classes.join(" ")}" data-key="${k}">
       <div class="card-main">
         <div class="card-text">
           <h3 class="name">${item.name}</h3>
@@ -480,7 +504,7 @@ function renderNextUp(item) {
   }
   const missionClass = item.booking ? "mission-booking" : isMust(item) ? "mission-must" : "";
   return `
-    <section class="mission-card ${missionClass}">
+    <section class="mission-card ${missionClass}" data-key="${key(item)}">
       <div class="mission-head">
         <div>
           <p class="eyebrow">${key(item) === forcedNextKey ? "Pinned Next" : "Next Up"}</p>
@@ -593,6 +617,15 @@ function render() {
     section("Booking Watch", "Items that need purchase, return time, or special attention", bookings, true, bookingsAvoid),
     section("Coming Up", "Good next moves outside the current land", coming, true, comingAvoid)
   ].join("");
+
+  if (pendingFlashKey) {
+    const el = app.querySelector(`[data-key="${pendingFlashKey.replace(/"/g, '\\"')}"]`);
+    if (el) {
+      el.classList.add("flash");
+      setTimeout(() => el.classList.remove("flash"), 700);
+    }
+    pendingFlashKey = "";
+  }
 }
 
 function viewTitle() {
@@ -624,7 +657,7 @@ function renderCard(item, compact = false) {
   else if (isMust(item)) classes.push("must");
 
   return `
-    <article class="${classes.join(" ")}">
+    <article class="${classes.join(" ")}" data-key="${k}">
       <div class="card-main">
         <div class="card-text">
           <h3 class="name">${item.name}</h3>
@@ -650,7 +683,7 @@ function renderNextUp(item) {
   }
   const missionClass = item.booking ? "mission-booking" : isMust(item) ? "mission-must" : "";
   return `
-    <section class="mission-card ${missionClass}">
+    <section class="mission-card ${missionClass}" data-key="${key(item)}">
       <div class="mission-head">
         <div>
           <p class="eyebrow">${icon(key(item) === forcedNextKey ? "pin" : "flag")}<span>${key(item) === forcedNextKey ? "Pinned Next" : "Next Up"}</span></p>
