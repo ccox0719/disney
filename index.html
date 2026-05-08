@@ -31,7 +31,15 @@
       <button class="icon-button danger header-reset" type="button" onclick="resetToDefault()" aria-label="Reset to default trip state">Reset</button>
     </div>
   </div>
-  <div class="top-menu" id="topMenu">
+</header>
+
+<aside class="nav-modal" id="navModal" aria-hidden="true">
+  <div class="nav-scrim" onclick="toggleTopMenu(false)"></div>
+  <section class="nav-sheet">
+    <div class="nav-sheet-header">
+      <p class="eyebrow">Navigation</p>
+      <button class="icon-button" type="button" onclick="toggleTopMenu(false)" aria-label="Close navigation">Close</button>
+    </div>
     <div class="tabs" id="tabs" aria-label="Day navigation"></div>
     <div class="location-row">
       <div id="currentPark" class="park-chips-row" role="group" aria-label="Current park"></div>
@@ -49,8 +57,8 @@
       <button class="view" data-view="later">Later</button>
       <button class="view" data-view="done">Done</button>
     </div>
-  </div>
-</header>
+  </section>
+</aside>
 
 <main id="app" class="app-shell"></main>
 <div class="action-toast" id="actionToast" aria-live="polite" aria-atomic="true"></div>

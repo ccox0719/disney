@@ -1028,10 +1028,11 @@ function toggleEditPanel(force) {
 }
 
 function toggleTopMenu(force) {
-  const menu = document.getElementById("topMenu");
+  const modal = document.getElementById("navModal");
   const button = document.getElementById("menuButton");
-  const open = typeof force === "boolean" ? force : !menu.classList.contains("open");
-  menu.classList.toggle("open", open);
+  const open = typeof force === "boolean" ? force : !modal.classList.contains("open");
+  modal.classList.toggle("open", open);
+  modal.setAttribute("aria-hidden", String(!open));
   button.classList.toggle("open", open);
   button.setAttribute("aria-expanded", String(open));
   button.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
