@@ -1,6 +1,11 @@
 npm run build
 netlify deploy --prod
 
+git add .
+git commit -m "Your message here"
+git push origin main
+
+
 
 Next run this in phases: 
 
