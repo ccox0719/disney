@@ -81,13 +81,56 @@ function buttonLabel(name, label) {
 }
 
 function priorityLabel(item) {
-  if (item.status === "Skip" || isSkipNow(item)) return "Skip";
+  if (item.status === "Skip" || isSkipNow(item)) return "Avoid";
   if (isFavorite(item)) return "Priority";
   if (isMust(item)) return "Must";
   if (item.booking) return "Booking";
-  if (item.status === "Uncertain") return "Check";
+  if (item.status === "Uncertain") return "If Time";
   if (String(item.color).toLowerCase().includes("yellow") || String(item.color).toLowerCase().includes("orange")) return "Optional";
   return item.status || "Active";
+}
+
+const tagOptions = ["Auto", "Must", "Priority", "Optional", "If Time", "Avoid"];
+
+function tagOverride(item) {
+  return itemState(item).tag || "Auto";
+}
+
+function displayTag(item) {
+  const tag = tagOverride(item);
+  return tag === "Auto" ? priorityLabel(item) : tag;
+}
+
+function tagClass(label, item) {
+  const text = String(label).toLowerCase();
+  if (text.includes("must") || text.includes("priority")) return "green";
+  if (text.includes("booking")) return "purple";
+  if (text.includes("optional")) return "yellow";
+  if (text.includes("heads") || text.includes("if time")) return "orange";
+  if (text.includes("skip") || text.includes("avoid")) return "red";
+  return colorClass(item.color);
+}
+
+function tagIcon(label) {
+  const text = String(label).toLowerCase();
+  if (text.includes("must") || text.includes("priority")) return "star";
+  if (text.includes("booking")) return "ticket";
+  if (text.includes("optional")) return "flag";
+  if (text.includes("heads") || text.includes("if time")) return "clock";
+  if (text.includes("skip") || text.includes("avoid")) return "ban";
+  return "flag";
+}
+
+function setTagOverride(k, tag) {
+  state[k] = state[k] || {};
+  if (tag === "Auto") {
+    delete state[k].tag;
+  } else {
+    state[k].tag = tag;
+  }
+  if (tag === "Avoid") state[k].skipNow = true;
+  saveToBrowser("Tag saved");
+  render();
 }
 
 function savedAtText(timestamp) {
@@ -140,9 +183,14 @@ function saveState() { saveToBrowser(); }
 function setActionByKey(k, action) {
   state[k] = state[k] || {};
   state[k][action] = !state[k][action];
+  if (action === "skipNow") {
+    if (state[k][action]) state[k].tag = "Avoid";
+    else if (state[k].tag === "Avoid") delete state[k].tag;
+  }
   if (action === "done" && state[k][action]) {
     state[k].later = false;
     state[k].skipNow = false;
+    if (state[k].tag === "Avoid") delete state[k].tag;
     if (forcedNextKey === k) clearForcedNext();
   }
   saveState();
@@ -277,11 +325,16 @@ function renderStats() {
 }
 
 function itemBadges(item, compact = false) {
-  const badges = [`<span class="badge ${colorClass(item.color)}">${icon(isMust(item) ? "star" : "flag")}<span>${priorityLabel(item)}</span></span>`];
+  const tag = displayTag(item);
+  const badges = [`<span class="badge ${tagClass(tag, item)}">${icon(tagIcon(tag))}<span>${tag}</span></span>`];
   if (!compact && item.booking) badges.push(`<span class="badge purple">${icon("ticket")}<span>Booking</span></span>`);
   if (!compact && isLater(item)) badges.push(`<span class="badge gray">${icon("clock")}<span>Later</span></span>`);
-  if (item.status === "Uncertain" || item.uncertainty) badges.push(`<span class="badge orange">${icon("alert")}<span>Check</span></span>`);
+  if (item.status === "Uncertain" || item.uncertainty) badges.push(`<span class="badge orange">${icon("clock")}<span>If Time</span></span>`);
   return badges.join("");
+}
+
+function avoidItems() {
+  return dayItems().filter(item => isSkipNow(item) && !isDone(item));
 }
 
 function renderActions(item, compact = false) {
@@ -300,7 +353,7 @@ function renderActions(item, compact = false) {
     <div class="quick-actions">
       <button class="primary-action" type="button" onclick='setActionByKey(${JSON.stringify(k)}, "done")'>${buttonLabel("check", s.done ? "Undo" : "Done")}</button>
       <button type="button" onclick='setActionByKey(${JSON.stringify(k)}, "later")'>${buttonLabel("clock", s.later ? "Now" : "Later")}</button>
-      <button class="quiet-action" type="button" onclick='setActionByKey(${JSON.stringify(k)}, "skipNow")'>${buttonLabel("ban", s.skipNow ? "Unskip" : "Skip")}</button>
+      <button class="quiet-action" type="button" onclick='setActionByKey(${JSON.stringify(k)}, "skipNow")'>${buttonLabel("ban", s.skipNow ? "Unavoid" : "Avoid")}</button>
       <button type="button" onclick='setActionByKey(${JSON.stringify(k)}, "fav")'>${buttonLabel("star", s.fav ? "Unstar" : "Star")}</button>
       <button type="button" onclick='makeNext(${JSON.stringify(k)})'>${buttonLabel("route", "Make Next")}</button>
     </div>
@@ -308,10 +361,20 @@ function renderActions(item, compact = false) {
 }
 
 function renderDetails(item) {
+  const k = key(item);
+  const currentTag = tagOverride(item);
   const details = [];
+  details.push(`
+    <label class="tag-editor">
+      <span>Display tag</span>
+      <select onchange='setTagOverride(${JSON.stringify(k)}, this.value)'>
+        ${tagOptions.map(tag => `<option value="${tag}"${tag === currentTag ? " selected" : ""}>${tag}</option>`).join("")}
+      </select>
+    </label>
+  `);
   if (item.meaning) details.push(`<p class="notes"><strong>Meaning:</strong> ${item.meaning}</p>`);
   if (item.notes) details.push(`<p class="notes"><strong>Notes:</strong> ${item.notes}</p>`);
-  if (item.uncertainty) details.push(`<p class="uncertain"><strong>Check:</strong> ${item.uncertainty}</p>`);
+  if (item.uncertainty) details.push(`<p class="uncertain"><strong>If Time:</strong> ${item.uncertainty}</p>`);
   if (!details.length) return "";
   return `<details class="details-toggle"><summary>${buttonLabel("list", "Details")}</summary>${details.join("")}</details>`;
 }
@@ -345,7 +408,7 @@ function renderCard(item, compact = false) {
         <div class="badges">${itemBadges(item, compact)}</div>
       </div>
       ${renderActions(item, compact)}
-      ${compact ? "" : renderDetails(item)}
+      ${renderDetails(item)}
     </article>
   `;
 }
@@ -406,6 +469,40 @@ function viewItems() {
   return [];
 }
 
+function viewAvoidItems() {
+  const avoided = avoidItems();
+  if (currentView === "nearby") return rankedItems(avoided.filter(item => item.land === currentLand));
+  if (currentView === "must") return rankedItems(avoided.filter(isMust));
+  if (currentView === "booking") return rankedItems(avoided.filter(item => item.booking));
+  if (currentView === "later") return rankedItems(avoided.filter(isLater));
+  if (currentView === "done") return [];
+  return rankedItems(avoided);
+}
+
+function renderAvoidCard(item) {
+  const k = key(item);
+  const canUnavoid = Boolean(itemState(item).skipNow);
+  return `
+    <article class="avoid-card">
+      <div>
+        <h3 class="name">${item.name}</h3>
+        <p class="land-line">${icon("pin")}<span>${item.land}</span><span>${item.park}</span></p>
+      </div>
+      ${canUnavoid ? `<button type="button" onclick='setActionByKey(${JSON.stringify(k)}, "skipNow")'>${buttonLabel("route", "Unavoid")}</button>` : ""}
+    </article>
+  `;
+}
+
+function renderAvoidList(items) {
+  if (!items.length) return "";
+  return `
+    <details class="avoid-list">
+      <summary>${icon("ban")}<span>Avoid</span><strong>${items.length}</strong></summary>
+      <div class="avoid-cards">${items.map(renderAvoidCard).join("")}</div>
+    </details>
+  `;
+}
+
 function render() {
   ensureCurrentDayAndLand();
   renderTabs();
@@ -419,20 +516,24 @@ function render() {
 
   if (currentView !== "next") {
     const items = viewItems();
-    app.innerHTML = renderStats() + renderNextUp(next) + section(viewTitle(), viewSubtitle(), items);
+    app.innerHTML = renderStats() + renderNextUp(next) + section(viewTitle(), viewSubtitle(), items, false, viewAvoidItems());
     return;
   }
 
   const nearby = rankedItems(activeItems().filter(item => item.land === currentLand && key(item) !== (next && key(next)) && !isLater(item))).slice(0, 6);
   const bookings = rankedItems(activeItems().filter(item => item.booking && key(item) !== (next && key(next)) && !isLater(item))).slice(0, 4);
   const coming = rankedItems(activeItems().filter(item => item.land !== currentLand && key(item) !== (next && key(next)) && !item.booking && !isLater(item))).slice(0, 8);
+  const avoided = avoidItems();
+  const nearbyAvoid = rankedItems(avoided.filter(item => item.land === currentLand));
+  const bookingsAvoid = rankedItems(avoided.filter(item => item.booking));
+  const comingAvoid = rankedItems(avoided.filter(item => item.land !== currentLand && !item.booking));
 
   app.innerHTML = [
     renderStats(),
     renderNextUp(next),
-    section(`Nearby in ${currentLand || "this area"}`, "Closest practical choices", nearby, true),
-    section("Booking Watch", "Items that need purchase, return time, or special attention", bookings, true),
-    section("Coming Up", "Good next moves outside the current land", coming, true)
+    section(`Nearby in ${currentLand || "this area"}`, "Closest practical choices", nearby, true, nearbyAvoid),
+    section("Booking Watch", "Items that need purchase, return time, or special attention", bookings, true, bookingsAvoid),
+    section("Coming Up", "Good next moves outside the current land", coming, true, comingAvoid)
   ].join("");
 }
 
@@ -472,7 +573,7 @@ function renderCard(item, compact = false) {
         <div class="badges">${itemBadges(item, compact)}</div>
       </div>
       ${renderActions(item, compact)}
-      ${compact ? "" : renderDetails(item)}
+      ${renderDetails(item)}
     </article>
   `;
 }
@@ -507,8 +608,8 @@ function renderNextUp(item) {
   `;
 }
 
-function section(title, subtitle, items, compact = false) {
-  if (!items.length) return "";
+function section(title, subtitle, items, compact = false, avoid = []) {
+  if (!items.length && !avoid.length) return "";
   return `
     <section class="section">
       <div class="section-head">
@@ -518,7 +619,8 @@ function section(title, subtitle, items, compact = false) {
         </div>
         <p>${items.length}</p>
       </div>
-      <div class="cards">${items.map(item => renderCard(item, compact)).join("")}</div>
+      ${items.length ? `<div class="cards">${items.map(item => renderCard(item, compact)).join("")}</div>` : ""}
+      ${renderAvoidList(avoid)}
     </section>
   `;
 }

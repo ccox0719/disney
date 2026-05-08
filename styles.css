@@ -743,6 +743,89 @@ h3 { margin: 0; font-size: .98rem; font-weight: 700; }
   margin: .3rem 0 0;
 }
 
+.tag-editor {
+  display:grid;
+  grid-template-columns:auto minmax(120px, 1fr);
+  align-items:center;
+  gap:8px;
+  margin:6px 0 8px;
+  color:var(--muted);
+  font-size:.78rem;
+  font-weight:700;
+}
+
+.tag-editor select {
+  width:100%;
+  min-height:34px;
+  border:1px solid var(--line-strong);
+  border-radius:999px;
+  background:var(--surface);
+  color:var(--ink);
+  padding:0 10px;
+  font-size:.82rem;
+  font-weight:700;
+}
+
+.avoid-list {
+  margin-top:10px;
+  border:1px solid rgba(220,38,38,.18);
+  background:rgba(254,242,242,.7);
+}
+
+.avoid-list summary {
+  min-height:38px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  color:#991b1b;
+  font-size:.78rem;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.avoid-list summary strong {
+  margin-left:auto;
+  min-width:22px;
+  height:20px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:999px;
+  background:rgba(220,38,38,.12);
+  color:#991b1b;
+  font-size:.7rem;
+}
+
+.avoid-cards {
+  display:grid;
+  gap:6px;
+  padding:0 10px 10px;
+}
+
+.avoid-card {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:9px 10px;
+  border:1px solid rgba(220,38,38,.12);
+  border-radius:14px;
+  background:rgba(255,255,255,.66);
+}
+
+.avoid-card .name {
+  font-size:.92rem;
+  color:#7f1d1d;
+}
+
+.avoid-card button {
+  min-height:34px;
+  padding:0 10px;
+  border-radius:999px;
+  font-size:.76rem;
+}
+
 .uncertain { color: #92400e; font-weight: 600; }
 
 @media (prefers-color-scheme: dark) {
@@ -1399,7 +1482,8 @@ summary {
 
 .form-grid input:focus,
 .form-grid select:focus,
-.form-grid textarea:focus {
+.form-grid textarea:focus,
+.tag-editor select:focus {
   outline:2px solid rgba(37,99,235,.28);
   border-color:rgba(37,99,235,.55);
 }
@@ -1509,13 +1593,30 @@ summary {
     background:rgba(69,10,10,.58);
   }
 
+  .avoid-list {
+    background:rgba(69,10,10,.42);
+    border-color:rgba(248,113,113,.2);
+  }
+
+  .avoid-list summary,
+  .avoid-list summary strong,
+  .avoid-card .name {
+    color:#fecaca;
+  }
+
+  .avoid-card {
+    background:rgba(30,41,59,.54);
+    border-color:rgba(248,113,113,.14);
+  }
+
   button,
   .tab,
   .view,
   .land-chip,
   .form-grid input,
   .form-grid select,
-  .form-grid textarea {
+  .form-grid textarea,
+  .tag-editor select {
     background:rgba(30,41,59,.72);
     border-color:rgba(255,255,255,.13);
     color:#f8fafc;
