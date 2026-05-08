@@ -37,6 +37,15 @@ function isFavorite(item) { return Boolean(itemState(item).fav); }
 function isMust(item) {
   return String(item.meaning).toLowerCase().includes("must") || String(item.color).toLowerCase().includes("green") || isFavorite(item);
 }
+
+function heightRequirement(item) {
+  return String(item.height || "").trim();
+}
+
+function hasHeightInfo(item) {
+  return Boolean(heightRequirement(item));
+}
+
 function activeItems() {
   return dayItems().filter(item => !isDone(item) && !isSkipNow(item));
 }
@@ -79,7 +88,8 @@ const icons = {
   upload: '<path d="M12 16V4"/><path d="m7 9 5-5 5 5"/><path d="M20 16v4H4v-4"/>',
   download: '<path d="M12 4v12"/><path d="m7 11 5 5 5-5"/><path d="M20 20H4"/>',
   x: '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
-  alert: '<path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 2.5 18a2 2 0 0 0 1.8 3h15.4a2 2 0 0 0 1.8-3L13.7 3.9a2 2 0 0 0-3.4 0z"/>'
+  alert: '<path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 2.5 18a2 2 0 0 0 1.8 3h15.4a2 2 0 0 0 1.8-3L13.7 3.9a2 2 0 0 0-3.4 0z"/>',
+  height: '<path d="M4 20h16"/><path d="M6 20V4"/><path d="M6 4h9"/><path d="M6 8h5"/><path d="M6 12h7"/><path d="M6 16h5"/>'
 };
 
 function icon(name) {
@@ -333,7 +343,7 @@ function setCurrentLand(land) {
 }
 
 function renderViews() {
-  const viewIcon = {next: "flag", nearby: "map", must: "star", booking: "ticket", later: "clock", done: "check"};
+  const viewIcon = {next: "flag", nearby: "map", must: "star", booking: "ticket", height: "height", later: "clock", done: "check"};
   document.querySelectorAll(".view").forEach(btn => {
     const label = btn.dataset.label || btn.textContent.trim();
     btn.dataset.label = label;
@@ -369,6 +379,8 @@ function renderStats() {
 function itemBadges(item, compact = false) {
   const tag = displayTag(item);
   const badges = [`<span class="badge ${tagClass(tag, item)}">${icon(tagIcon(tag))}<span>${tag}</span></span>`];
+  const height = heightRequirement(item);
+  if (height) badges.push(`<span class="badge blue">${icon("height")}<span>${height}</span></span>`);
   if (!compact && item.booking) badges.push(`<span class="badge purple">${icon("ticket")}<span>Booking</span></span>`);
   if (!compact && isLater(item)) badges.push(`<span class="badge gray">${icon("clock")}<span>Later</span></span>`);
   if (item.status === "Uncertain" || item.uncertainty) badges.push(`<span class="badge orange">${icon("clock")}<span>If Time</span></span>`);
@@ -415,6 +427,7 @@ function renderDetails(item) {
     </label>
   `);
   if (item.meaning) details.push(`<p class="notes"><strong>Meaning:</strong> ${item.meaning}</p>`);
+  if (item.height) details.push(`<p class="notes"><strong>Height:</strong> ${item.height}</p>`);
   if (item.notes) details.push(`<p class="notes"><strong>Notes:</strong> ${item.notes}</p>`);
   if (item.uncertainty) details.push(`<p class="uncertain"><strong>If Time:</strong> ${item.uncertainty}</p>`);
   if (!details.length) return "";
@@ -506,6 +519,7 @@ function viewItems() {
   if (currentView === "nearby") return rankedItems(active.filter(item => item.land === currentLand && !isLater(item)));
   if (currentView === "must") return rankedItems(active.filter(item => isMust(item) && !isLater(item)));
   if (currentView === "booking") return rankedItems(active.filter(item => item.booking && !isLater(item)));
+  if (currentView === "height") return rankedItems(active.filter(item => hasHeightInfo(item) && !isLater(item)));
   if (currentView === "later") return rankedItems(dayItems().filter(item => isLater(item)));
   if (currentView === "done") return dayItems().filter(isDone).sort((a, b) => (a.order || 999) - (b.order || 999));
   return [];
@@ -516,6 +530,7 @@ function viewAvoidItems() {
   if (currentView === "nearby") return rankedItems(avoided.filter(item => item.land === currentLand));
   if (currentView === "must") return rankedItems(avoided.filter(isMust));
   if (currentView === "booking") return rankedItems(avoided.filter(item => item.booking));
+  if (currentView === "height") return rankedItems(avoided.filter(hasHeightInfo));
   if (currentView === "later") return rankedItems(avoided.filter(isLater));
   if (currentView === "done") return [];
   return rankedItems(avoided);
@@ -584,6 +599,7 @@ function viewTitle() {
   if (currentView === "nearby") return `Nearby in ${currentLand}`;
   if (currentView === "must") return "Must Do";
   if (currentView === "booking") return "Bookings";
+  if (currentView === "height") return "Height Rules";
   if (currentView === "later") return "Later";
   if (currentView === "done") return "Completed";
   return "Items";
@@ -593,6 +609,7 @@ function viewSubtitle() {
   if (currentView === "nearby") return "Only active items in your current land";
   if (currentView === "must") return "Highest-priority active items";
   if (currentView === "booking") return "Anything requiring booking or special attention";
+  if (currentView === "height") return "Rides with a posted height minimum or supervision rule";
   if (currentView === "later") return "Deferred items you can bring back";
   if (currentView === "done") return "Finished today";
   return "";
@@ -679,13 +696,15 @@ function addItem() {
   const status = document.getElementById("newStatus").value;
   const booking = document.getElementById("newBooking").value === "true";
   const order = Number(document.getElementById("newOrder").value || 999);
+  const height = document.getElementById("newHeight").value.trim();
   const notes = document.getElementById("newNotes").value.trim();
   const uncertainty = document.getElementById("newUncertainty").value.trim();
   const meaning = color === "Green" ? "Must do" : color === "Purple" ? "Booking or special attention" : color === "Red" ? "Skip" : "Custom priority";
-  customAttractions.push({day, park, land, name, color, meaning, booking, notes, status, order, uncertainty});
+  customAttractions.push({day, park, land, name, color, meaning, booking, height, notes, status, order, uncertainty});
   currentDay = day;
   currentLand = land;
   document.getElementById("newName").value = "";
+  document.getElementById("newHeight").value = "";
   document.getElementById("newNotes").value = "";
   document.getElementById("newUncertainty").value = "";
   saveToBrowser("Item saved");
@@ -700,7 +719,7 @@ function addBlankDay() {
   render();
 }
 
-const csvColumns = ["day", "park", "land", "name", "color", "meaning", "booking", "notes", "status", "order", "uncertainty"];
+const csvColumns = ["day", "park", "land", "name", "color", "meaning", "booking", "height", "notes", "status", "order", "uncertainty"];
 
 function csvEscape(value) {
   const text = value == null ? "" : String(value);
@@ -781,6 +800,7 @@ function rowToAttraction(headers, fields, lineNumber) {
     color: item.color || "Green",
     meaning: item.meaning || "Custom priority",
     booking: ["true", "yes", "1", "y"].includes(String(item.booking).toLowerCase()),
+    height: item.height || "",
     notes: item.notes || "",
     status: item.status || "Active",
     order: order || 999,

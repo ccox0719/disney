@@ -1,118 +1,118 @@
-day,park,land,name,color,meaning,booking,notes,status,order,uncertainty
-1,Magic Kingdom,Parkwide / Entertainment,Festival of Fantasy Parade,Yellow,If time / lower priority,false,,Active,1,Star/color visible; yellow not in user legend.
-1,Magic Kingdom,Parkwide / Entertainment,Disney Starlight Parade,Yellow,If time / lower priority,false,,Active,2,Star/color visible; yellow not in user legend.
-1,Magic Kingdom,"Main Street, U.S.A.",Ride the Train,Yellow,If time / lower priority,false,,Active,3,Yellow not in user legend.
-1,Magic Kingdom,"Main Street, U.S.A.",Shopping,Yellow,If time / lower priority,false,,Active,4,Not a ride; included because starred.
-1,Magic Kingdom,Fantasyland,Prince Charming Regal Carrousel,Yellow,If time / lower priority,false,,Active,5,Yellow not in user legend.
-1,Magic Kingdom,Fantasyland,Peter Pan's Flight,Green,Must do,false,,Active,6,
-1,Magic Kingdom,Fantasyland,It's a small world,Green,Must do,false,,Active,7,
-1,Magic Kingdom,Fantasyland,Mad Tea Party,Yellow,If time / lower priority,false,,Active,8,Yellow not in user legend.
-1,Magic Kingdom,Fantasyland,Dumbo the Flying Elephant,Yellow,If time / lower priority,false,,Active,9,Yellow not in user legend.
-1,Magic Kingdom,Fantasyland,Mickey's PhilharMagic,Yellow,If time / lower priority,false,,Active,10,Yellow not in user legend.
-1,Magic Kingdom,Fantasyland,The Many Adventures of Winnie the Pooh,Yellow,If time / lower priority,false,,Active,11,Yellow not in user legend.
-1,Magic Kingdom,Fantasyland,Barnstormer,Green,Must do,false,35 inch height note shown.,Active,12,
-1,Magic Kingdom,Fantasyland,Under the Sea: Journey of the Little Mermaid,Yellow,If time / lower priority,false,,Active,13,Yellow not in user legend; name read from sheet.
-1,Magic Kingdom,Fantasyland,Seven Dwarfs Mine Train,Purple/Blue,Booking or special attention,true,38 inch height note shown.,Active,14,Color appears purple/blue; booking interpretation likely.
-1,Magic Kingdom,Fantasyland,Cheshire Cafe,Green,Must do / food stop,false,,Active,15,Not a ride; included because starred.
-1,Magic Kingdom,Tomorrowland,Tomorrowland Speedway,Yellow,If time / lower priority,false,32 inch height note shown.,Active,16,Yellow not in user legend.
-1,Magic Kingdom,Tomorrowland,Space Mountain,Green,Must do,false,44 inch height note shown.,Active,17,
-1,Magic Kingdom,Tomorrowland,Buzz Lightyear's Space Ranger Spin,Green,Must do,false,,Active,18,
-1,Magic Kingdom,Tomorrowland,TRON Lightcycle / Run,Purple/Blue,Booking or special attention,true,48 inch height note shown.,Active,19,Purple/blue mark suggests booking; confirm.
-1,Magic Kingdom,Tomorrowland,Astro Orbiter,Yellow,If time / lower priority,false,,Active,20,Yellow not in user legend.
-1,Magic Kingdom,Tomorrowland,Laugh Floor,Yellow,If time / lower priority,false,,Active,21,Yellow not in user legend.
-1,Magic Kingdom,Tomorrowland,PeopleMover,Green,Must do,false,Handwritten note nearby: “Have an [unclear] is between booking...”,Active,22,Pink/purple note partially unreadable.
-1,Magic Kingdom,Liberty Square,Haunted Mansion,Green,Must do,false,,Active,23,
-1,Magic Kingdom,Liberty Square,Hall of Presidents,Red/Pink,Skip,false,Marked with skip-style note.,Skip,24,Starred but skipped; handwriting partially unclear.
-1,Magic Kingdom,Frontierland,Tiana's Bayou Adventure,Purple/Blue,Booking or special attention,true,40 inch height note shown.,Active,25,Color appears purple/blue; confirm booking status.
-1,Magic Kingdom,Frontierland,Big Thunder Mountain Railroad,Orange/Yellow,If time or special category,false,40 inch height note shown.,Active,26,Orange/yellow shade uncertain.
-1,Magic Kingdom,Frontierland,Country Bear Musical Jamboree,Red,Skip,false,,Skip,27,Appears red star/mark; verify.
-1,Magic Kingdom,Frontierland,Pecos Bill Tall Tale Inn,Green,Must do / food stop,false,,Active,28,Not a ride; included because starred.
-1,Magic Kingdom,Adventureland,Pirates of the Caribbean,Green,Must do,false,,Active,29,
-1,Magic Kingdom,Adventureland,Jungle Cruise,Green,Must do,false,,Active,30,
-1,Magic Kingdom,Adventureland,Enchanted Tiki Room,Red/Pink,Skip,false,,Skip,31,Appears marked skip.
-1,Magic Kingdom,Adventureland,Swiss Family Treehouse,Yellow,If time / lower priority,false,,Active,32,Yellow not in user legend.
-1,Magic Kingdom,Adventureland,The Magic Carpets of Aladdin,Red/Pink,Skip or low priority,false,,Skip,33,Looks red/pink; verify whether skip.
-2,Hollywood Studios,Parkwide / Entertainment,Fantasmic!,Orange/Yellow,If time or special category,false,,Active,1,Orange/yellow shade uncertain.
-2,Hollywood Studios,Hollywood Blvd.,Mickey & Minnie's Runaway Railway,Green,Must do,false,,Active,2,
-2,Hollywood Studios,Echo Lake,Star Tours,Green,Must do,false,,Active,3,
-2,Hollywood Studios,Echo Lake,For the First Time in Forever: Frozen Sing-Along,Green,Must do,false,,Active,4,
-2,Hollywood Studios,Echo Lake,Indiana Jones Epic Stunt Spectacular,Green,Must do,false,,Active,5,
-2,Hollywood Studios,Echo Lake,Meet Olaf,Green,Must do,false,,Active,6,
-2,Hollywood Studios,Sunset Blvd.,The Twilight Zone Tower of Terror,Purple/Blue,Booking or special attention,true,40 inch height note shown.,Active,7,Booking color appears purple/blue.
-2,Hollywood Studios,Sunset Blvd.,Beauty and the Beast Live on Stage,Green,Must do,false,,Active,8,
-2,Hollywood Studios,Animation Courtyard,The Little Mermaid Show,Green,Must do,false,,Active,9,
-2,Hollywood Studios,Toy Story Land,Toy Story Mania,Purple/Blue,Booking or special attention,true,,Active,10,Color appears purple/blue.
-2,Hollywood Studios,Toy Story Land,Alien Swirling Saucers,Purple/Blue,Booking or special attention,true,32 inch height note shown.,Active,11,Color appears purple/blue.
-2,Hollywood Studios,Toy Story Land,Slinky Dog Dash,Green,Must do,false,38 inch height note shown.,Active,12,
-2,Hollywood Studios,Toy Story Land,Woody's Lunch Box,Green,Must do / food stop,false,,Active,13,Not a ride; included because starred.
-2,Hollywood Studios,Star Wars: Galaxy's Edge,Millennium Falcon: Smugglers Run,Green,Must do,false,38 inch height note shown.,Active,14,
-2,Hollywood Studios,Star Wars: Galaxy's Edge,Star Wars: Rise of the Resistance,Green/Purple,"Must do, possible booking/special attention",true,40 inch height note shown. Pink handwritten note nearby partially unclear.,Active,15,Booking note/marking unclear; verify.
-2,EPCOT,World Celebration,Spaceship Earth,Purple/Blue,Booking or special attention,true,,Active,16,Color appears purple/blue.
-2,EPCOT,World Nature,The Seas with Nemo and Friends,Purple/Blue,Booking or special attention,true,,Active,17,Color appears purple/blue.
-2,EPCOT,World Nature,Living with the Land,Orange/Yellow,If time or special category,false,,Active,18,Orange/yellow shade uncertain.
-2,EPCOT,World Nature,Soarin',Green,Must do,false,40 inch height note shown.,Active,19,
-2,EPCOT,World Nature,Journey of Water,Yellow,If time / lower priority,false,Moana themed area.,Active,20,Yellow not in user legend.
-2,EPCOT,World Nature,Turtle Talk with Crush,Yellow/Orange,If time or special category,false,,Active,21,Name partially near bottom of land section; color unclear.
-2,EPCOT,World Discovery,Guardians of the Galaxy: Cosmic Rewind,Purple/Blue,Booking or special attention,true,42 inch height note shown.,Active,22,Booking likely.
-2,EPCOT,World Discovery,Mission: SPACE,Purple/Blue,Booking or special attention,true,40 inch height note shown; handwritten note mentions orange/strong intensity.,Active,23,Color and note partially unclear.
-2,EPCOT,World Showcase,Gran Fiesta Tour Starring The Three Caballeros,Yellow/Orange,If time or special category,false,Mexico.,Active,24,Color uncertain.
-2,EPCOT,World Showcase,Frozen Ever After,Green,Must do,false,Norway.,Active,25,
-2,EPCOT,World Showcase,Remy's Ratatouille Adventure,Green,Must do,false,France.,Active,26,
-3,Animal Kingdom,Discovery Island,Take a Photo with the Tree of Life,Green,Must do,false,,Active,1,
-3,Animal Kingdom,Discovery Island,It's Tough to be a Bug,Red/Pink,Skip,false,Marked with skip-style handwritten note.,Skip,2,Attraction may be replaced by Zootopia show depending timing; verify.
-3,Animal Kingdom,Discovery Island,Zootopia: Better Zoogether,Green,Must do,false,,Active,3,
-3,Animal Kingdom,Pandora - The World of Avatar,Na'vi River Journey,Green/Purple,"Must do, possible booking/special attention",true,,Active,4,Both green and purple/blue markings appear nearby.
-3,Animal Kingdom,Pandora - The World of Avatar,Avatar Flight of Passage,Purple/Blue + Green,Booking or special attention; must do,true,44 inch height note shown.,Active,5,Booking likely.
-3,Animal Kingdom,Africa,Kilimanjaro Safaris,Purple/Blue,Booking or special attention,true,,Active,6,Color appears purple/blue.
-3,Animal Kingdom,Africa,Festival of the Lion King,Orange/Yellow,If time or special category,false,,Active,7,Orange/yellow shade uncertain.
-3,Animal Kingdom,Africa,Wildlife Express Train,Orange/Yellow + Red,Uncertain / possible skip,false,,Uncertain,8,Contains yellow/orange star and red X-like mark; verify whether skip.
-3,Animal Kingdom,Africa,Meet Goofy,Red/Pink,Skip or note,false,Pink note says skip/unclear.,Skip,9,Handwritten mark unclear.
-3,Animal Kingdom,Asia,Expedition Everest,Purple/Blue,Booking or special attention,true,44 inch height note shown.,Active,10,Booking/special color appears purple/blue.
-3,Animal Kingdom,Asia,Feathered Friends in Flight,Red/Pink,Skip,false,,Skip,11,Appears red/pink star/mark; verify.
-4,Epic Universe,Celestial Park,Enter Through Celestial Park,Yellow,Arrival / orientation,false,Use as regroup and route-planning zone before splitting to portals.,Active,1,
-4,Epic Universe,Super Nintendo World,Mario Kart: Bowser's Challenge,Green,Highest priority,false,Do immediately at rope drop if possible.,Active,2,
-4,Epic Universe,Super Nintendo World,Mine-Cart Madness,Green,Highest priority,false,Major family coaster headliner; expect long waits.,Active,3,
-4,Epic Universe,Super Nintendo World,Power-Up Band Activities,Orange,Optional interactive upgrade,true,Worth it only if planning extended Nintendo exploration.,Active,4,Requires additional purchase.
-4,Epic Universe,Super Nintendo World,Yoshi's Adventure,Yellow,If time / family ride,false,Good rest ride after Mario Kart area congestion.,Active,5,
-4,Epic Universe,The Wizarding World of Harry Potter - Ministry of Magic,Harry Potter and the Battle at the Ministry,Green,Highest priority,false,Major flagship attraction; prioritize before afternoon crowds.,Active,6,
-4,Epic Universe,The Wizarding World of Harry Potter - Ministry of Magic,Le Cirque Arcanus,Green,Must do show,false,Good midday cooldown and seated break.,Active,7,
-4,Epic Universe,The Wizarding World of Harry Potter - Ministry of Magic,Wizarding Paris Exploration,Yellow,Atmosphere / optional,false,"Use for food, wand interactions, and visual breaks.",Active,8,
-4,Epic Universe,How to Train Your Dragon - Isle of Berk,Hiccup's Wing Gliders,Green,Must do,false,Strong family coaster and good pacing ride.,Active,9,
-4,Epic Universe,How to Train Your Dragon - Isle of Berk,The Untrainable Dragon,Green,Must do show,false,Recommended recharge point during hottest hours.,Active,10,
-4,Epic Universe,How to Train Your Dragon - Isle of Berk,Fyre Drill,Orange,Water attraction / optional,false,Can soak riders; better later in day.,Active,11,
-4,Epic Universe,How to Train Your Dragon - Isle of Berk,Dragon Racer's Rally,Orange,Thrill optional,false,More intense spinning attraction; not for everyone.,Active,12,
-4,Epic Universe,Dark Universe,Monsters Unchained: The Frankenstein Experiment,Green,Must do,false,Top-tier dark ride and one of park priorities.,Active,13,
-4,Epic Universe,Dark Universe,Curse of the Werewolf,Orange,Thrill optional,false,Good secondary thrill ride if nearby.,Active,14,
-4,Epic Universe,Celestial Park,Stardust Racers,Green,Must do,false,Elite nighttime coaster if energy remains late day.,Active,15,
-4,Epic Universe,Celestial Park,Constellation Carousel,Yellow,If time / atmosphere,false,Best experienced after sunset lighting activates.,Active,16,
-5,Islands of Adventure,Port of Entry,Early Entry Positioning,Green,Strategic start,false,Move directly toward Hogsmeade at park open.,Active,1,
-5,Islands of Adventure,The Wizarding World of Harry Potter - Hogsmeade,Hagrid's Magical Creatures Motorbike Adventure,Green,Highest priority,false,Absolute rope-drop target; highest operational priority in park.,Active,2,
-5,Islands of Adventure,The Wizarding World of Harry Potter - Hogsmeade,Harry Potter and the Forbidden Journey,Green,Must do,false,Best immediately after Hagrid's before crowds build.,Active,3,
-5,Islands of Adventure,The Wizarding World of Harry Potter - Hogsmeade,Flight of the Hippogriff,Yellow,If time / family coaster,false,Good nearby filler if wait is low.,Active,4,
-5,Islands of Adventure,The Wizarding World of Harry Potter - Hogsmeade,Hogwarts Express - Hogsmeade Station,Purple,Park-to-park ticket required,true,Use only if hopping to Universal Studios Florida.,Active,5,Requires park-to-park admission.
-5,Islands of Adventure,Jurassic Park,Jurassic World VelociCoaster,Green,Highest priority,false,Top-tier coaster; prioritize before afternoon waits spike.,Active,6,
-5,Islands of Adventure,Jurassic Park,Jurassic Park River Adventure,Orange,Water ride / optional,false,Good afternoon ride when heat rises.,Active,7,
-5,Islands of Adventure,Jurassic Park,Pteranodon Flyers,Yellow,Child-dependent,true,Access restrictions depend on child rider requirements.,Active,8,Eligibility rules may vary.
-5,Islands of Adventure,Marvel Super Hero Island,The Amazing Adventures of Spider-Man,Green,Must do,false,One of the best balanced family thrill rides.,Active,9,
-5,Islands of Adventure,Marvel Super Hero Island,The Incredible Hulk Coaster,Green,Must do,false,High intensity coaster; prioritize if thrill-focused group.,Active,10,
-5,Islands of Adventure,Marvel Super Hero Island,Doctor Doom's Fearfall,Orange,Thrill optional,false,Quick experience if nearby and wait low.,Active,11,
-5,Islands of Adventure,Toon Lagoon,Dudley Do-Right's Ripsaw Falls,Orange,Water ride / optional,false,Very wet; only ride if okay staying soaked.,Active,12,
-5,Islands of Adventure,Toon Lagoon,Popeye & Bluto's Bilge-Rat Barges,Orange,Water ride / optional,false,Most soaking attraction in park.,Active,13,
-5,Islands of Adventure,Skull Island,Skull Island: Reign of Kong,Yellow,If time / lower priority,false,Good shaded queue and indoor cooldown.,Active,14,
-5,Islands of Adventure,Seuss Landing,High in the Sky Seuss Trolley Train Ride,Yellow,If time / scenic,false,Good park overview and decompression ride.,Active,15,
-5,Islands of Adventure,Seuss Landing,The Cat in the Hat,Yellow,If time / family ride,false,Useful lower-intensity reset attraction.,Active,16,
-6,Universal Studios Florida,Production Central,TRANSFORMERS: The Ride-3D,Green,Must do,false,Strong early-day attraction before simulator queues rise.,Active,1,
-6,Universal Studios Florida,Production Central,Despicable Me Minion Mayhem,Yellow,If time / family simulator,false,Can become crowded early with families.,Active,2,
-6,Universal Studios Florida,New York,Revenge of the Mummy,Green,Highest priority,false,One of park's best attractions; prioritize early or late.,Active,3,
-6,Universal Studios Florida,San Francisco,Fast & Furious: Supercharged,Red,Skip,false,Low-value time investment unless walk-on.,Skip,4,
-6,Universal Studios Florida,The Wizarding World of Harry Potter - Diagon Alley,Harry Potter and the Escape from Gringotts,Green,Highest priority,false,Core headliner attraction; high thematic value.,Active,5,
-6,Universal Studios Florida,The Wizarding World of Harry Potter - Diagon Alley,Diagon Alley Exploration,Green,Must do atmosphere,false,"Prioritize wand spots, dragon fire, and themed food.",Active,6,
-6,Universal Studios Florida,The Wizarding World of Harry Potter - Diagon Alley,Hogwarts Express - King's Cross Station,Purple,Park-to-park ticket required,true,Use only if returning to Islands of Adventure.,Active,7,Requires park-to-park admission.
-6,Universal Studios Florida,World Expo,Men in Black Alien Attack,Green,Must do,false,Excellent repeatable shooter attraction.,Active,8,
-6,Universal Studios Florida,Springfield USA,The Simpsons Ride,Yellow,If time / fan-dependent,false,Motion-heavy simulator; skip if prone to sickness.,Active,9,
-6,Universal Studios Florida,Hollywood,The Bourne Stuntacular,Green,Must do show,false,Top-tier seated break with excellent effects.,Active,10,
-6,Universal Studios Florida,Hollywood,Universal Orlando's Horror Make-Up Show,Yellow,If time / older kids,false,Funny and worthwhile if timing lines up.,Active,11,
-6,Universal Studios Florida,Woody Woodpecker's KidZone,E.T. Adventure,Yellow,Classic / nostalgic,false,Good slower-paced dark ride break.,Active,12,
-6,Universal Studios Florida,Minion Land,Illumination's Villain-Con Minion Blast,Yellow,If time / interactive,false,Best if line remains short.,Active,13,
-6,Universal Studios Florida,Minion Land,Minion Cafe,Orange,Food stop,false,Useful lunch reset point with indoor seating.,Active,14,
-6,Universal Studios Florida,Hollywood,DreamWorks Land,Yellow,Kids area / optional,false,Best for younger children or energy reset.,Active,15,
+"day","park","land","name","color","meaning","booking","height","notes","status","order","uncertainty"
+"1","Magic Kingdom","Parkwide / Entertainment","Festival of Fantasy Parade","Yellow","If time / lower priority","false","","","Active","1","Star/color visible; yellow not in user legend."
+"1","Magic Kingdom","Parkwide / Entertainment","Disney Starlight Parade","Yellow","If time / lower priority","false","","","Active","2","Star/color visible; yellow not in user legend."
+"1","Magic Kingdom","Main Street, U.S.A.","Ride the Train","Yellow","If time / lower priority","false","","","Active","3","Yellow not in user legend."
+"1","Magic Kingdom","Main Street, U.S.A.","Shopping","Yellow","If time / lower priority","false","","","Active","4","Not a ride; included because starred."
+"1","Magic Kingdom","Fantasyland","Prince Charming Regal Carrousel","Yellow","If time / lower priority","false","","","Active","5","Yellow not in user legend."
+"1","Magic Kingdom","Fantasyland","Peter Pan's Flight","Green","Must do","false","","","Active","6",""
+"1","Magic Kingdom","Fantasyland","It's a small world","Green","Must do","false","","","Active","7",""
+"1","Magic Kingdom","Fantasyland","Mad Tea Party","Yellow","If time / lower priority","false","","","Active","8","Yellow not in user legend."
+"1","Magic Kingdom","Fantasyland","Dumbo the Flying Elephant","Yellow","If time / lower priority","false","","","Active","9","Yellow not in user legend."
+"1","Magic Kingdom","Fantasyland","Mickey's PhilharMagic","Yellow","If time / lower priority","false","","","Active","10","Yellow not in user legend."
+"1","Magic Kingdom","Fantasyland","The Many Adventures of Winnie the Pooh","Yellow","If time / lower priority","false","","","Active","11","Yellow not in user legend."
+"1","Magic Kingdom","Fantasyland","Barnstormer","Green","Must do","false","35 in","","Active","12",""
+"1","Magic Kingdom","Fantasyland","Under the Sea: Journey of the Little Mermaid","Yellow","If time / lower priority","false","","","Active","13","Yellow not in user legend; name read from sheet."
+"1","Magic Kingdom","Fantasyland","Seven Dwarfs Mine Train","Purple/Blue","Booking or special attention","true","38 in","","Active","14","Color appears purple/blue; booking interpretation likely."
+"1","Magic Kingdom","Fantasyland","Cheshire Cafe","Green","Must do / food stop","false","","","Active","15","Not a ride; included because starred."
+"1","Magic Kingdom","Tomorrowland","Tomorrowland Speedway","Yellow","If time / lower priority","false","32 in","","Active","16","Yellow not in user legend."
+"1","Magic Kingdom","Tomorrowland","Space Mountain","Green","Must do","false","44 in","","Active","17",""
+"1","Magic Kingdom","Tomorrowland","Buzz Lightyear's Space Ranger Spin","Green","Must do","false","","","Active","18",""
+"1","Magic Kingdom","Tomorrowland","TRON Lightcycle / Run","Purple/Blue","Booking or special attention","true","48 in","","Active","19","Purple/blue mark suggests booking; confirm."
+"1","Magic Kingdom","Tomorrowland","Astro Orbiter","Yellow","If time / lower priority","false","","","Active","20","Yellow not in user legend."
+"1","Magic Kingdom","Tomorrowland","Laugh Floor","Yellow","If time / lower priority","false","","","Active","21","Yellow not in user legend."
+"1","Magic Kingdom","Tomorrowland","PeopleMover","Green","Must do","false","","Handwritten note nearby: ?Have an [unclear] is between booking...?","Active","22","Pink/purple note partially unreadable."
+"1","Magic Kingdom","Liberty Square","Haunted Mansion","Green","Must do","false","","","Active","23",""
+"1","Magic Kingdom","Liberty Square","Hall of Presidents","Red/Pink","Skip","false","","Marked with skip-style note.","Skip","24","Starred but skipped; handwriting partially unclear."
+"1","Magic Kingdom","Frontierland","Tiana's Bayou Adventure","Purple/Blue","Booking or special attention","true","40 in","","Active","25","Color appears purple/blue; confirm booking status."
+"1","Magic Kingdom","Frontierland","Big Thunder Mountain Railroad","Orange/Yellow","If time or special category","false","38 in","","Active","26","Orange/yellow shade uncertain."
+"1","Magic Kingdom","Frontierland","Country Bear Musical Jamboree","Red","Skip","false","","","Skip","27","Appears red star/mark; verify."
+"1","Magic Kingdom","Frontierland","Pecos Bill Tall Tale Inn","Green","Must do / food stop","false","","","Active","28","Not a ride; included because starred."
+"1","Magic Kingdom","Adventureland","Pirates of the Caribbean","Green","Must do","false","","","Active","29",""
+"1","Magic Kingdom","Adventureland","Jungle Cruise","Green","Must do","false","","","Active","30",""
+"1","Magic Kingdom","Adventureland","Enchanted Tiki Room","Red/Pink","Skip","false","","","Skip","31","Appears marked skip."
+"1","Magic Kingdom","Adventureland","Swiss Family Treehouse","Yellow","If time / lower priority","false","","","Active","32","Yellow not in user legend."
+"1","Magic Kingdom","Adventureland","The Magic Carpets of Aladdin","Red/Pink","Skip or low priority","false","","","Skip","33","Looks red/pink; verify whether skip."
+"2","Hollywood Studios","Parkwide / Entertainment","Fantasmic!","Orange/Yellow","If time or special category","false","","","Active","1","Orange/yellow shade uncertain."
+"2","Hollywood Studios","Hollywood Blvd.","Mickey & Minnie's Runaway Railway","Green","Must do","false","","","Active","2",""
+"2","Hollywood Studios","Echo Lake","Star Tours","Green","Must do","false","40 in","","Active","3",""
+"2","Hollywood Studios","Echo Lake","For the First Time in Forever: Frozen Sing-Along","Green","Must do","false","","","Active","4",""
+"2","Hollywood Studios","Echo Lake","Indiana Jones Epic Stunt Spectacular","Green","Must do","false","","","Active","5",""
+"2","Hollywood Studios","Echo Lake","Meet Olaf","Green","Must do","false","","","Active","6",""
+"2","Hollywood Studios","Sunset Blvd.","The Twilight Zone Tower of Terror","Purple/Blue","Booking or special attention","true","40 in","","Active","7","Booking color appears purple/blue."
+"2","Hollywood Studios","Sunset Blvd.","Beauty and the Beast Live on Stage","Green","Must do","false","","","Active","8",""
+"2","Hollywood Studios","Animation Courtyard","The Little Mermaid Show","Green","Must do","false","","","Active","9",""
+"2","Hollywood Studios","Toy Story Land","Toy Story Mania","Purple/Blue","Booking or special attention","true","","","Active","10","Color appears purple/blue."
+"2","Hollywood Studios","Toy Story Land","Alien Swirling Saucers","Purple/Blue","Booking or special attention","true","32 in","","Active","11","Color appears purple/blue."
+"2","Hollywood Studios","Toy Story Land","Slinky Dog Dash","Green","Must do","false","38 in","","Active","12",""
+"2","Hollywood Studios","Toy Story Land","Woody's Lunch Box","Green","Must do / food stop","false","","","Active","13","Not a ride; included because starred."
+"2","Hollywood Studios","Star Wars: Galaxy's Edge","Millennium Falcon: Smugglers Run","Green","Must do","false","38 in","","Active","14",""
+"2","Hollywood Studios","Star Wars: Galaxy's Edge","Star Wars: Rise of the Resistance","Green/Purple","Must do, possible booking/special attention","true","40 in","Pink handwritten note nearby partially unclear.","Active","15","Booking note/marking unclear; verify."
+"2","EPCOT","World Celebration","Spaceship Earth","Purple/Blue","Booking or special attention","true","","","Active","16","Color appears purple/blue."
+"2","EPCOT","World Nature","The Seas with Nemo and Friends","Purple/Blue","Booking or special attention","true","","","Active","17","Color appears purple/blue."
+"2","EPCOT","World Nature","Living with the Land","Orange/Yellow","If time or special category","false","","","Active","18","Orange/yellow shade uncertain."
+"2","EPCOT","World Nature","Soarin'","Green","Must do","false","40 in","","Active","19",""
+"2","EPCOT","World Nature","Journey of Water","Yellow","If time / lower priority","false","","Moana themed area.","Active","20","Yellow not in user legend."
+"2","EPCOT","World Nature","Turtle Talk with Crush","Yellow/Orange","If time or special category","false","","","Active","21","Name partially near bottom of land section; color unclear."
+"2","EPCOT","World Discovery","Guardians of the Galaxy: Cosmic Rewind","Purple/Blue","Booking or special attention","true","42 in","","Active","22","Booking likely."
+"2","EPCOT","World Discovery","Mission: SPACE","Purple/Blue","Booking or special attention","true","40 in","handwritten note mentions orange/strong intensity.","Active","23","Color and note partially unclear."
+"2","EPCOT","World Showcase","Gran Fiesta Tour Starring The Three Caballeros","Yellow/Orange","If time or special category","false","","Mexico.","Active","24","Color uncertain."
+"2","EPCOT","World Showcase","Frozen Ever After","Green","Must do","false","","Norway.","Active","25",""
+"2","EPCOT","World Showcase","Remy's Ratatouille Adventure","Green","Must do","false","","France.","Active","26",""
+"3","Animal Kingdom","Discovery Island","Take a Photo with the Tree of Life","Green","Must do","false","","","Active","1",""
+"3","Animal Kingdom","Discovery Island","It's Tough to be a Bug","Red/Pink","Skip","false","","Marked with skip-style handwritten note.","Skip","2","Attraction may be replaced by Zootopia show depending timing; verify."
+"3","Animal Kingdom","Discovery Island","Zootopia: Better Zoogether","Green","Must do","false","","","Active","3",""
+"3","Animal Kingdom","Pandora - The World of Avatar","Na'vi River Journey","Green/Purple","Must do, possible booking/special attention","true","","","Active","4","Both green and purple/blue markings appear nearby."
+"3","Animal Kingdom","Pandora - The World of Avatar","Avatar Flight of Passage","Purple/Blue + Green","Booking or special attention; must do","true","44 in","","Active","5","Booking likely."
+"3","Animal Kingdom","Africa","Kilimanjaro Safaris","Purple/Blue","Booking or special attention","true","","","Active","6","Color appears purple/blue."
+"3","Animal Kingdom","Africa","Festival of the Lion King","Orange/Yellow","If time or special category","false","","","Active","7","Orange/yellow shade uncertain."
+"3","Animal Kingdom","Africa","Wildlife Express Train","Orange/Yellow + Red","Uncertain / possible skip","false","","","Uncertain","8","Contains yellow/orange star and red X-like mark; verify whether skip."
+"3","Animal Kingdom","Africa","Meet Goofy","Red/Pink","Skip or note","false","","Pink note says skip/unclear.","Skip","9","Handwritten mark unclear."
+"3","Animal Kingdom","Asia","Expedition Everest","Purple/Blue","Booking or special attention","true","44 in","","Active","10","Booking/special color appears purple/blue."
+"3","Animal Kingdom","Asia","Feathered Friends in Flight","Red/Pink","Skip","false","","","Skip","11","Appears red/pink star/mark; verify."
+"4","Epic Universe","Celestial Park","Enter Through Celestial Park","Yellow","Arrival / orientation","false","","Use as regroup and route-planning zone before splitting to portals.","Active","1",""
+"4","Epic Universe","Super Nintendo World","Mario Kart: Bowser's Challenge","Green","Highest priority","false","40 in","Do immediately at rope drop if possible.","Active","2",""
+"4","Epic Universe","Super Nintendo World","Mine-Cart Madness","Green","Highest priority","false","40 in","Major family coaster headliner; expect long waits.","Active","3",""
+"4","Epic Universe","Super Nintendo World","Power-Up Band Activities","Orange","Optional interactive upgrade","true","","Worth it only if planning extended Nintendo exploration.","Active","4","Requires additional purchase."
+"4","Epic Universe","Super Nintendo World","Yoshi's Adventure","Yellow","If time / family ride","false","34 in","supervising companion required under 48 inches. Good rest ride after Mario Kart area congestion.","Active","5",""
+"4","Epic Universe","The Wizarding World of Harry Potter - Ministry of Magic","Harry Potter and the Battle at the Ministry","Green","Highest priority","false","40 in","Major flagship attraction; prioritize before afternoon crowds.","Active","6",""
+"4","Epic Universe","The Wizarding World of Harry Potter - Ministry of Magic","Le Cirque Arcanus","Green","Must do show","false","","Good midday cooldown and seated break.","Active","7",""
+"4","Epic Universe","The Wizarding World of Harry Potter - Ministry of Magic","Wizarding Paris Exploration","Yellow","Atmosphere / optional","false","","Use for food, wand interactions, and visual breaks.","Active","8",""
+"4","Epic Universe","How to Train Your Dragon - Isle of Berk","Hiccup's Wing Gliders","Green","Must do","false","40 in","Strong family coaster and good pacing ride.","Active","9",""
+"4","Epic Universe","How to Train Your Dragon - Isle of Berk","The Untrainable Dragon","Green","Must do show","false","","Recommended recharge point during hottest hours.","Active","10",""
+"4","Epic Universe","How to Train Your Dragon - Isle of Berk","Fyre Drill","Orange","Water attraction / optional","false","Supervise under 48 in","Can soak riders; better later in day.","Active","11",""
+"4","Epic Universe","How to Train Your Dragon - Isle of Berk","Dragon Racer's Rally","Orange","Thrill optional","false","48 in","More intense spinning attraction; not for everyone.","Active","12",""
+"4","Epic Universe","Dark Universe","Monsters Unchained: The Frankenstein Experiment","Green","Must do","false","48 in","Top-tier dark ride and one of park priorities.","Active","13",""
+"4","Epic Universe","Dark Universe","Curse of the Werewolf","Orange","Thrill optional","false","40 in","Good secondary thrill ride if nearby.","Active","14",""
+"4","Epic Universe","Celestial Park","Stardust Racers","Green","Must do","false","48 in","","Active","15",""
+"4","Epic Universe","Celestial Park","Constellation Carousel","Yellow","If time / atmosphere","false","","Best experienced after sunset lighting activates.","Active","16",""
+"5","Islands of Adventure","Port of Entry","Early Entry Positioning","Green","Strategic start","false","","Move directly toward Hogsmeade at park open.","Active","1",""
+"5","Islands of Adventure","The Wizarding World of Harry Potter - Hogsmeade","Hagrid's Magical Creatures Motorbike Adventure","Green","Highest priority","false","48 in","Absolute rope-drop target; highest operational priority in park.","Active","2",""
+"5","Islands of Adventure","The Wizarding World of Harry Potter - Hogsmeade","Harry Potter and the Forbidden Journey","Green","Must do","false","48 in","Best immediately after Hagrid's before crowds build.","Active","3",""
+"5","Islands of Adventure","The Wizarding World of Harry Potter - Hogsmeade","Flight of the Hippogriff","Yellow","If time / family coaster","false","36 in","Good nearby filler if wait is low.","Active","4",""
+"5","Islands of Adventure","The Wizarding World of Harry Potter - Hogsmeade","Hogwarts Express - Hogsmeade Station","Purple","Park-to-park ticket required","true","Supervise under 48 in","Requires park-to-park admission.","Active","5","Requires park-to-park admission."
+"5","Islands of Adventure","Jurassic Park","Jurassic World VelociCoaster","Green","Highest priority","false","51 in","Top-tier coaster; prioritize before afternoon waits spike.","Active","6",""
+"5","Islands of Adventure","Jurassic Park","Jurassic Park River Adventure","Orange","Water ride / optional","false","42 in","Good afternoon ride when heat rises.","Active","7",""
+"5","Islands of Adventure","Jurassic Park","Pteranodon Flyers","Yellow","Child-dependent","true","36-56 in","guests over 56 inches must ride with a qualifying child. Eligibility rules may vary.","Active","8","Eligibility rules may vary."
+"5","Islands of Adventure","Marvel Super Hero Island","The Amazing Adventures of Spider-Man","Green","Must do","false","40 in","One of the best balanced family thrill rides.","Active","9",""
+"5","Islands of Adventure","Marvel Super Hero Island","The Incredible Hulk Coaster","Green","Must do","false","54 in","High intensity coaster; prioritize if thrill-focused group.","Active","10",""
+"5","Islands of Adventure","Marvel Super Hero Island","Doctor Doom's Fearfall","Orange","Thrill optional","false","52 in","Quick experience if nearby and wait low.","Active","11",""
+"5","Islands of Adventure","Toon Lagoon","Dudley Do-Right's Ripsaw Falls","Orange","Water ride / optional","false","44 in","Very wet; only ride if okay staying soaked.","Active","12",""
+"5","Islands of Adventure","Toon Lagoon","Popeye & Bluto's Bilge-Rat Barges","Orange","Water ride / optional","false","42 in","Most soaking attraction in park.","Active","13",""
+"5","Islands of Adventure","Skull Island","Skull Island: Reign of Kong","Yellow","If time / lower priority","false","36 in","Good shaded queue and indoor cooldown.","Active","14",""
+"5","Islands of Adventure","Seuss Landing","High in the Sky Seuss Trolley Train Ride","Yellow","If time / scenic","false","36 in","Good park overview and decompression ride.","Active","15",""
+"5","Islands of Adventure","Seuss Landing","The Cat in the Hat","Yellow","If time / family ride","false","36 in","Useful lower-intensity reset attraction.","Active","16",""
+"6","Universal Studios Florida","Production Central","TRANSFORMERS: The Ride-3D","Green","Must do","false","40 in","Strong early-day attraction before simulator queues rise.","Active","1",""
+"6","Universal Studios Florida","Production Central","Despicable Me Minion Mayhem","Yellow","If time / family simulator","false","40 in","Can become crowded early with families.","Active","2",""
+"6","Universal Studios Florida","New York","Revenge of the Mummy","Green","Highest priority","false","48 in","One of park's best attractions; prioritize early or late.","Active","3",""
+"6","Universal Studios Florida","San Francisco","Fast & Furious: Supercharged","Red","Skip","false","40 in","Low-value time investment unless walk-on.","Skip","4",""
+"6","Universal Studios Florida","The Wizarding World of Harry Potter - Diagon Alley","Harry Potter and the Escape from Gringotts","Green","Highest priority","false","42 in","Core headliner attraction; high thematic value.","Active","5",""
+"6","Universal Studios Florida","The Wizarding World of Harry Potter - Diagon Alley","Diagon Alley Exploration","Green","Must do atmosphere","false","","Prioritize wand spots, dragon fire, and themed food.","Active","6",""
+"6","Universal Studios Florida","The Wizarding World of Harry Potter - Diagon Alley","Hogwarts Express - King's Cross Station","Purple","Park-to-park ticket required","true","Supervise under 48 in","Requires park-to-park admission.","Active","7","Requires park-to-park admission."
+"6","Universal Studios Florida","World Expo","Men in Black Alien Attack","Green","Must do","false","42 in","Excellent repeatable shooter attraction.","Active","8",""
+"6","Universal Studios Florida","Springfield USA","The Simpsons Ride","Yellow","If time / fan-dependent","false","40 in","Motion-heavy simulator; skip if prone to sickness.","Active","9",""
+"6","Universal Studios Florida","Hollywood","The Bourne Stuntacular","Green","Must do show","false","","Top-tier seated break with excellent effects.","Active","10",""
+"6","Universal Studios Florida","Hollywood","Universal Orlando's Horror Make-Up Show","Yellow","If time / older kids","false","","Funny and worthwhile if timing lines up.","Active","11",""
+"6","Universal Studios Florida","Woody Woodpecker's KidZone","E.T. Adventure","Yellow","Classic / nostalgic","false","34 in","Good slower-paced dark ride break.","Active","12",""
+"6","Universal Studios Florida","Minion Land","Illumination's Villain-Con Minion Blast","Yellow","If time / interactive","false","Supervise under 48 in","Best if line remains short.","Active","13",""
+"6","Universal Studios Florida","Minion Land","Minion Cafe","Orange","Food stop","false","","Useful lunch reset point with indoor seating.","Active","14",""
+"6","Universal Studios Florida","Hollywood","DreamWorks Land","Yellow","Kids area / optional","false","","Best for younger children or energy reset.","Active","15",""

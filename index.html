@@ -43,6 +43,7 @@
       <button class="view" data-view="nearby">Nearby</button>
       <button class="view" data-view="must">Must</button>
       <button class="view" data-view="booking">Bookings</button>
+      <button class="view" data-view="height">Heights</button>
       <button class="view" data-view="later">Later</button>
       <button class="view" data-view="done">Done</button>
     </div>
@@ -86,7 +87,8 @@
           <select id="newBooking"><option value="false">No</option><option value="true">Yes</option></select>
         </label>
         <label>Display Order<input id="newOrder" type="number" min="1" value="1"></label>
-        <textarea id="newNotes" placeholder="Notes, reminders, food stop, height requirement, etc."></textarea>
+        <label>Height Rule<input id="newHeight" placeholder="Example: 40 in"></label>
+        <textarea id="newNotes" placeholder="Notes, reminders, food stop, etc."></textarea>
         <textarea id="newUncertainty" placeholder="Uncertainty flags, if any"></textarea>
         <div class="form-actions">
           <button type="button" onclick="addItem()">Add Item</button>
