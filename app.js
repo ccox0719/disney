@@ -2,7 +2,7 @@ let customAttractions = JSON.parse(localStorage.getItem("disneyCustomAttractions
 let importedAttractions = JSON.parse(localStorage.getItem("disneyImportedAttractions") || "null");
 let blankDays = JSON.parse(localStorage.getItem("disneyBlankDays") || "[]");
 let currentDay = Number(localStorage.getItem("disneyCurrentDay") || "1");
-let currentView = localStorage.getItem("disneyCurrentView") || "next";
+let currentView = localStorage.getItem("disneyCurrentView") || "overview";
 let currentPark = localStorage.getItem("disneyCurrentPark") || "";
 let currentLand = localStorage.getItem("disneyCurrentLand") || "";
 let forcedNextKey = localStorage.getItem("disneyForcedNextKey") || "";
@@ -15,7 +15,7 @@ if (browserSave) {
   if (localStorage.getItem("disneyCustomAttractions") === null) customAttractions = browserSave.customAttractions || [];
   if (localStorage.getItem("disneyBlankDays") === null) blankDays = browserSave.blankDays || [];
   if (localStorage.getItem("disneyCurrentDay") === null) currentDay = Number(browserSave.currentDay || 1);
-  if (localStorage.getItem("disneyCurrentView") === null) currentView = browserSave.currentView || "next";
+  if (localStorage.getItem("disneyCurrentView") === null) currentView = browserSave.currentView || "overview";
   if (localStorage.getItem("disneyCurrentPark") === null) currentPark = browserSave.currentPark || "";
   if (localStorage.getItem("disneyCurrentLand") === null) currentLand = browserSave.currentLand || "";
   if (localStorage.getItem("disneyForcedNextKey") === null) forcedNextKey = browserSave.forcedNextKey || "";
@@ -245,7 +245,7 @@ function setActionByKey(k, action) {
 
 function makeNext(k) {
   forcedNextKey = k;
-  currentView = "next";
+  currentView = "overview";
   pendingFlashKey = k;
   saveToBrowser("Pinned as next");
   render();
@@ -687,7 +687,11 @@ function renderCard(item, compact = false) {
 }
 
 function renderOverview() {
-  const items = rankedItems(dayItems().filter(item => !isDone(item) && !isSkipNow(item) && !isLater(item)));
+  const items = dayItems()
+    .filter(item => !isDone(item) && !isSkipNow(item) && !isLater(item))
+    .sort((a, b) => (a.order || 999) - (b.order || 999) || String(a.park).localeCompare(String(b.park)) || String(a.land).localeCompare(String(b.land)) || String(a.name).localeCompare(String(b.name)));
+
+  let lastPark = "";
   const agenda = items.map((item, index) => {
     const isCurrent = item.park === currentPark && item.land === currentLand;
     const height = heightRequirement(item);
@@ -697,8 +701,15 @@ function renderOverview() {
       isMust(item) ? "Must" : "",
       item.status === "Uncertain" || item.uncertainty ? "If Time" : ""
     ].filter(Boolean);
+    const parkHeader = item.park !== lastPark ? `
+      <div class="overview-park${item.park === currentPark ? " active" : ""}">
+        <span>${item.park}</span>
+      </div>
+    ` : "";
+    lastPark = item.park;
 
     return `
+      ${parkHeader}
       <article class="overview-row${isCurrent ? " active" : ""}" data-key="${key(item)}">
         <div class="overview-row-head">
           <div class="overview-index">${String(index + 1).padStart(2, "0")}</div>
@@ -718,6 +729,7 @@ function renderOverview() {
         <p class="eyebrow">${icon("calendar")}<span>Overview</span></p>
         <h2>Day ${currentDay}</h2>
         <p>${items.length} stops in order.</p>
+        <p class="overview-context">${getCurrentPark()} / ${currentLand || "No land selected"}</p>
       </div>
       <div class="overview-list">${agenda || `<div class="overview-empty">No stops for this day.</div>`}</div>
     </section>

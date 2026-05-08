@@ -1710,10 +1710,35 @@ h1,
   line-height:1.35;
 }
 
+.overview-context {
+  margin-top:6px !important;
+  font-size:.68rem !important;
+  font-weight:700;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+
 .overview-list {
   display:grid;
   gap:8px;
   margin-top:10px;
+}
+
+.overview-park {
+  margin:10px 0 2px;
+  padding:8px 10px;
+  border-radius:14px;
+  background:rgba(15,23,42,.05);
+  color:#0f172a;
+  font-size:.7rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.overview-park.active {
+  background:rgba(37,99,235,.1);
+  color:#1d4ed8;
 }
 
 .overview-row {
@@ -1802,9 +1827,20 @@ h1,
 @media (prefers-color-scheme: dark) {
   .overview-head p,
   .overview-item-copy p,
+  .overview-context,
   .overview-empty,
   .overview-tags span {
     color:#94a3b8;
+  }
+
+  .overview-park {
+    background:rgba(148,163,184,.12);
+    color:#e2e8f0;
+  }
+
+  .overview-park.active {
+    background:rgba(59,130,246,.18);
+    color:#bfdbfe;
   }
 
   .overview-index {
