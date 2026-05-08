@@ -653,7 +653,7 @@ function viewTitle() {
 }
 
 function viewSubtitle() {
-  if (currentView === "overview") return "Ultra minimal park-by-park agenda";
+  if (currentView === "overview") return "One ordered list for the day";
   if (currentView === "nearby") return "Only active items in your current land";
   if (currentView === "must") return "Highest-priority active items";
   if (currentView === "booking") return "Anything requiring booking or special attention";
@@ -687,25 +687,27 @@ function renderCard(item, compact = false) {
 }
 
 function renderOverview() {
-  const agenda = parksForDay().map(park => {
-    const parkAll = dayItems().filter(item => item.park === park);
-    const active = parkAll.filter(item => !isDone(item) && !isSkipNow(item));
-    const next = rankedItems(active)[0] || null;
-    const must = active.filter(isMust).length;
-    const bookings = active.filter(item => item.booking).length;
-    const heights = active.filter(item => hasHeightInfo(item)).length;
-    const isActivePark = park === currentPark;
+  const items = rankedItems(dayItems().filter(item => !isDone(item) && !isSkipNow(item) && !isLater(item)));
+  const agenda = items.map((item, index) => {
+    const isCurrent = item.park === currentPark && item.land === currentLand;
+    const height = heightRequirement(item);
+    const tags = [
+      item.booking ? "Booking" : "",
+      height ? height : "",
+      isMust(item) ? "Must" : "",
+      item.status === "Uncertain" || item.uncertainty ? "If Time" : ""
+    ].filter(Boolean);
 
     return `
-      <article class="overview-row${isActivePark ? " active" : ""}" data-key="${park}">
+      <article class="overview-row${isCurrent ? " active" : ""}" data-key="${key(item)}">
         <div class="overview-row-head">
-          <div>
-            <h3>${park}</h3>
-            <p>${active.length} active stop${active.length === 1 ? "" : "s"}</p>
+          <div class="overview-index">${String(index + 1).padStart(2, "0")}</div>
+          <div class="overview-item-copy">
+            <h3>${item.name}</h3>
+            <p>${item.park} · ${item.land}</p>
           </div>
-          <span class="overview-count">${must} must / ${bookings} bk / ${heights} ht</span>
         </div>
-        <p class="overview-next">${next ? next.name : "No active stops"}</p>
+        ${tags.length ? `<p class="overview-tags">${tags.map(tag => `<span>${tag}</span>`).join("")}</p>` : ""}
       </article>
     `;
   }).join("");
@@ -715,7 +717,7 @@ function renderOverview() {
       <div class="overview-head">
         <p class="eyebrow">${icon("calendar")}<span>Overview</span></p>
         <h2>Day ${currentDay}</h2>
-        <p>Minimal agenda by park. No extra noise.</p>
+        <p>Ordered by what to hit next.</p>
       </div>
       <div class="overview-list">${agenda || `<div class="overview-empty">No stops for this day.</div>`}</div>
     </section>
